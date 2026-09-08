@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+.DS_Store
+.env
+
+# Ignore rendered output but not assets you import into src/.
+out
+*.mp4
+*.webm
+*.mov
