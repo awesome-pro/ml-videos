@@ -62,7 +62,7 @@ export const ScoreGrid: React.FC<ScoreGridProps> = ({
       const fill = isMasked
         ? maskColor
         : color;
-      const bgOpacity = isMasked ? 0.28 : 0.12 + v * 0.64;
+      const bgOpacity = isMasked ? 0.32 : 0.2 + v * 0.62;
 
       cells.push(
         <div
@@ -84,7 +84,7 @@ export const ScoreGrid: React.FC<ScoreGridProps> = ({
             transform: `scale(${interpolate(appear, [0, 1], [0.82, 1])})`,
             color: showValues ? AP_COLORS.textPrimary : fill,
             fontFamily: AP_FONTS.mono,
-            fontSize: Math.max(16, Math.round(cell * 0.34)),
+            fontSize: Math.max(19, Math.round(cell * 0.38)),
             fontWeight: 700,
             textShadow: showValues ? "0 1px 3px rgba(0,0,0,0.6)" : "none",
           }}
@@ -117,8 +117,9 @@ export const ScoreGrid: React.FC<ScoreGridProps> = ({
             transform: "translateX(-50%)",
             color: labelColor,
             fontFamily: AP_FONTS.sans,
-            fontSize: 20,
-            fontWeight: 600,
+            fontSize: 22,
+            fontWeight: 700,
+            textShadow: AP_COLORS.textShadow,
           }}
         >
           {lab}
@@ -137,8 +138,9 @@ export const ScoreGrid: React.FC<ScoreGridProps> = ({
             transform: "translate(-100%, -50%)",
             color: labelColor,
             fontFamily: AP_FONTS.sans,
-            fontSize: 20,
-            fontWeight: 600,
+            fontSize: 22,
+            fontWeight: 700,
+            textShadow: AP_COLORS.textShadow,
             whiteSpace: "nowrap",
           }}
         >

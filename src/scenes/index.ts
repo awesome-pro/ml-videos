@@ -121,6 +121,19 @@ import { KV_MHA_GQA_MQA_DURATION, KVMhaGqaMqa } from "./kv/KVMhaGqaMqa";
 import { KV_FULL_RECAP_DURATION, KVFullRecap } from "./kv/KVFullRecap";
 import { KV_REAL_MODEL_DURATION, KVRealModelFlow } from "./kv/KVRealModelFlow";
 import { KV_CLOSING_DURATION, KVClosing } from "./kv/KVClosing";
+import {
+  MATH_KIT_EQUATIONS_DURATION,
+  MathKitEquations,
+} from "./kit/MathKitEquations";
+import { MATH_KIT_STEPS_DURATION, MathKitSteps } from "./kit/MathKitSteps";
+import {
+  MATH_KIT_DIAGRAMS_DURATION,
+  MathKitDiagrams,
+} from "./kit/MathKitDiagrams";
+import {
+  SCENE_GRID_TRANSFORM_DURATION,
+  SceneGridTransform,
+} from "./math/SceneGridTransform";
 
 export type SceneDef = {
   id: string;
@@ -548,6 +561,42 @@ export const scenes: SceneDef[] = [
     id: "KVClosing",
     component: KVClosing,
     durationInFrames: KV_CLOSING_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MathKitEquations",
+    component: MathKitEquations,
+    durationInFrames: MATH_KIT_EQUATIONS_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MathKitSteps",
+    component: MathKitSteps,
+    durationInFrames: MATH_KIT_STEPS_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MathKitDiagrams",
+    component: MathKitDiagrams,
+    durationInFrames: MATH_KIT_DIAGRAMS_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "GridTransform",
+    component: SceneGridTransform,
+    durationInFrames: SCENE_GRID_TRANSFORM_DURATION,
     fps: FPS,
     width: WIDTH,
     height: HEIGHT,

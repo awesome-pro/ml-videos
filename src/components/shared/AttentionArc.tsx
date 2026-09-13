@@ -56,7 +56,7 @@ export const AttentionArc: React.FC<AttentionArcProps> = ({
     extrapolateRight: "clamp",
   });
 
-  const strokeWidth = 1.5 + clampedWeight * 5.5;
+  const strokeWidth = 2.2 + clampedWeight * 6.2;
   const dashOffset = 1 - progress;
 
   // Arrowhead triangle along the end tangent.
@@ -89,13 +89,13 @@ export const AttentionArc: React.FC<AttentionArcProps> = ({
         strokeDasharray="1"
         pathLength={1}
         strokeDashoffset={dashOffset}
-        opacity={opacity * (0.45 + clampedWeight * 0.5)}
+        opacity={opacity * (0.62 + clampedWeight * 0.38)}
       />
       {showArrow ? (
         <polygon
           points={`${x2},${y2} ${bx + px * size},${by + py * size} ${bx - px * size},${by - py * size}`}
           fill={color}
-          opacity={opacity * arrowScale * 0.9}
+          opacity={opacity * arrowScale}
         />
       ) : null}
     </svg>

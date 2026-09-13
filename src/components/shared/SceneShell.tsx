@@ -73,11 +73,12 @@ export const SceneShell: React.FC<SceneShellProps> = ({
               width: 1920,
               textAlign: "center",
               color: AP_COLORS.accent,
-              fontSize: 26,
-              fontWeight: 700,
+              fontSize: 27,
+              fontWeight: 800,
               letterSpacing: "0.34em",
               textTransform: "uppercase",
               opacity: kickerOpacity,
+              textShadow: AP_COLORS.textShadow,
               userSelect: "none",
             }}
           >
@@ -99,6 +100,7 @@ export const SceneShell: React.FC<SceneShellProps> = ({
               lineHeight: 1.08,
               opacity: titleOpacity,
               transform: `translateY(${titleY}px)`,
+              textShadow: AP_COLORS.textShadowStrong,
               userSelect: "none",
               padding: "0 140px",
             }}

@@ -26,11 +26,12 @@ export const LeadLine: React.FC<{
         textAlign: "center",
         color,
         fontSize: size,
-        fontWeight: 500,
+        fontWeight: 600,
         opacity,
         transform: `translateY(${8 - opacity * 8}px)`,
         lineHeight: 1.4,
         padding: "0 140px",
+        textShadow: AP_COLORS.textShadow,
       }}
     >
       {text}
@@ -66,9 +67,10 @@ export const Tag: React.FC<{
         border: `1.5px solid ${color}`,
         color,
         fontSize: size,
-        fontWeight: 700,
+        fontWeight: 800,
         opacity,
         fontFamily: "inherit",
+        textShadow: AP_COLORS.textShadow,
         boxShadow: AP_COLORS.cardShadowSoft,
         whiteSpace: "nowrap",
       }}
