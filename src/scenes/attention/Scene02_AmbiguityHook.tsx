@@ -16,7 +16,7 @@ import {
 } from "./examples";
 import { AP_COLORS } from "../../components/shared/theme";
 
-export const SCENE_02_DURATION = 660; // 22.0s
+export const SCENE_02_DURATION = 230; // 7.7s — trimmed tail
 
 const ROW_1_Y = 500;
 const ROW_2_Y = 770;

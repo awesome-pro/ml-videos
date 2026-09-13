@@ -1,42 +1,58 @@
 import React from "react";
 import { interpolate, useCurrentFrame } from "remotion";
 import { SceneShell } from "../../components/shared/SceneShell";
-import { NumberVec } from "../../components/shared/NumberVec";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
+import { BANK_1 } from "./examples";
 import { LeadLine } from "../../components/shared/ui";
 
-export const SCENE_10_DURATION = 340; // 11.3s — token IDs → real vector numbers
+export const SCENE_TOKENS_TO_IDS_DURATION = 320; // 10.7s — words → token IDs
 
-// Deterministic pseudo-IDs and vector values (never random).
+// Deterministic pseudo-IDs (never random).
 const TOKEN_IDS = [97, 41, 12, 76, 182, 40];
-const VECTORS: number[][] = [
-  [0.2, -0.4, 0.9, -0.1],
-  [0.6, 0.3, -0.7, 0.2],
-  [-0.3, 0.8, 0.1, 0.5],
-  [0.4, -0.2, 0.7, -0.6],
-  [0.9, 0.1, -0.4, 0.3],
-  [-0.5, 0.6, 0.2, 0.8],
-];
 
-const CELL_W = 56;
-const CELL_H = 44;
-const CELL_GAP = 4;
-const COL_GAP = 22;
-const VEC_TOP = 576;
-
-export const Scene10_TokensToVectors: React.FC = () => {
+export const SceneTokensToIDs: React.FC = () => {
   const frame = useCurrentFrame();
 
-  const totalW = TOKEN_IDS.length * CELL_W + (TOKEN_IDS.length - 1) * COL_GAP;
-  const startX = 960 - totalW / 2;
-  const colX = (i: number) => startX + i * (CELL_W + COL_GAP);
+  const idsOpacity = interpolate(frame, [160, 182], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   return (
-    <SceneShell kicker="From words to math" duration={SCENE_10_DURATION} enterDelay={0}>
-      <LeadLine text="A token ID is just a number. But a token is really a vector." y={314} start={8} />
+    <SceneShell kicker="From words to math" duration={SCENE_TOKENS_TO_IDS_DURATION} enterDelay={0}>
+      <LeadLine text="A model can’t read words — it reads numbers." y={314} start={8} />
 
-      {/* Token IDs row */}
-      <div style={{ position: "absolute", left: 0, top: 398, width: 1920, display: "flex", justifyContent: "center", gap: 14 }}>
+      {/* Words (input) */}
+      <div style={{ position: "absolute", left: 0, top: 414, width: 1920, display: "flex", justifyContent: "center", gap: 14 }}>
+        {BANK_1.map((w, i) => (
+          <div
+            key={i}
+            style={{
+              padding: "16px 22px",
+              borderRadius: 12,
+              background: AP_COLORS.surfaceRaised,
+              border: `1.5px solid ${AP_COLORS.surfaceBorderActive}`,
+              color: AP_COLORS.textPrimary,
+              fontSize: 34,
+              fontWeight: 600,
+              fontFamily: AP_FONTS.sans,
+              opacity: interpolate(frame - (18 + i * 3), [0, 12], [0, 1], {
+                extrapolateLeft: "clamp",
+                extrapolateRight: "clamp",
+              }),
+            }}
+          >
+            {w}
+          </div>
+        ))}
+      </div>
+
+      <DownArrow y={506} start={104} />
+
+      <StageLabel text="TOKENIZER" y={566} color={AP_COLORS.accent} opacity={interpolate(frame, [128, 144], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
+
+      {/* Token IDs */}
+      <div style={{ position: "absolute", left: 0, top: 612, width: 1920, display: "flex", justifyContent: "center", gap: 14, opacity: idsOpacity }}>
         {TOKEN_IDS.map((id, i) => (
           <div
             key={i}
@@ -49,7 +65,7 @@ export const Scene10_TokensToVectors: React.FC = () => {
               fontSize: 30,
               fontWeight: 700,
               fontFamily: AP_FONTS.mono,
-              opacity: interpolate(frame - (20 + i * 3), [0, 12], [0, 1], {
+              opacity: interpolate(frame - (164 + i * 3), [0, 12], [0, 1], {
                 extrapolateLeft: "clamp",
                 extrapolateRight: "clamp",
               }),
@@ -60,41 +76,19 @@ export const Scene10_TokensToVectors: React.FC = () => {
         ))}
       </div>
 
-      <DownArrow y={474} start={110} />
-
-      <StageLabel text="EMBEDDING" y={534} color={AP_COLORS.value} opacity={interpolate(frame, [136, 152], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} />
-
-      {/* Each token → a column vector of real numbers */}
-      {TOKEN_IDS.map((_, i) => (
-        <NumberVec
-          key={`v-${i}`}
-          values={VECTORS[i]}
-          color={i === 4 ? AP_COLORS.value : AP_COLORS.accent}
-          x={colX(i)}
-          y={VEC_TOP}
-          direction="column"
-          cellW={CELL_W}
-          cellH={CELL_H}
-          gap={CELL_GAP}
-          appearDelay={170 + i * 4}
-          format={(v) => v.toFixed(1)}
-          radius={7}
-        />
-      ))}
-
       <div
         style={{
           position: "absolute",
           left: 0,
-          top: 800,
+          top: 726,
           width: 1920,
           textAlign: "center",
           color: AP_COLORS.textSecondary,
           fontSize: 28,
-          opacity: interpolate(frame, [250, 274], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+          opacity: interpolate(frame, [240, 264], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
         }}
       >
-        each token → a list of numbers (its <span style={{ color: AP_COLORS.value }}>embedding</span>)
+        each word → a <span style={{ color: AP_COLORS.accent }}>token ID</span> (its number in the vocabulary)
       </div>
     </SceneShell>
   );

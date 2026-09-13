@@ -20,6 +20,10 @@ export type ScoreGridProps = {
   appearDelay?: number;
   showLabels?: boolean;
   labelColor?: string;
+  /** Print the actual numeric value inside each cell (2 decimals by default). */
+  showValues?: boolean;
+  /** Formatter for the printed value. */
+  valueFormat?: (v: number) => string;
 };
 
 export const ScoreGrid: React.FC<ScoreGridProps> = ({
@@ -38,6 +42,8 @@ export const ScoreGrid: React.FC<ScoreGridProps> = ({
   appearDelay = 0,
   showLabels = true,
   labelColor = AP_COLORS.textSecondary,
+  showValues = false,
+  valueFormat,
 }) => {
   const frame = useCurrentFrame();
 
@@ -56,7 +62,7 @@ export const ScoreGrid: React.FC<ScoreGridProps> = ({
       const fill = isMasked
         ? maskColor
         : color;
-      const bgOpacity = isMasked ? 0.28 : 0.12 + v * 0.8;
+      const bgOpacity = isMasked ? 0.28 : 0.12 + v * 0.64;
 
       cells.push(
         <div
@@ -76,13 +82,22 @@ export const ScoreGrid: React.FC<ScoreGridProps> = ({
             alignItems: "center",
             justifyContent: "center",
             transform: `scale(${interpolate(appear, [0, 1], [0.82, 1])})`,
-            color: fill,
+            color: showValues ? AP_COLORS.textPrimary : fill,
             fontFamily: AP_FONTS.mono,
-            fontSize: Math.max(15, Math.round(cell * 0.32)),
+            fontSize: Math.max(16, Math.round(cell * 0.34)),
             fontWeight: 700,
+            textShadow: showValues ? "0 1px 3px rgba(0,0,0,0.6)" : "none",
           }}
         >
-          {isMasked ? "✕" : null}
+          {isMasked
+            ? showValues
+              ? "−∞"
+              : "✕"
+            : showValues
+            ? valueFormat
+              ? valueFormat(v)
+              : v.toFixed(2)
+            : null}
         </div>
       );
     }

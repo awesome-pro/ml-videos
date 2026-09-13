@@ -3,7 +3,7 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { SceneShell } from "../../components/shared/SceneShell";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const SCENE_09_DURATION = 480; // 16.0s
+export const SCENE_09_DURATION = 280; // 9.3s — trimmed tail
 
 const STEPS = [
   { text: "Find what matters.", color: AP_COLORS.query },

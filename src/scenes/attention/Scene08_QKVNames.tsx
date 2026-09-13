@@ -3,7 +3,7 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { SceneShell } from "../../components/shared/SceneShell";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const SCENE_08_DURATION = 600; // 20.0s
+export const SCENE_08_DURATION = 210; // 7.0s — trimmed tail
 
 const CARDS = [
   {

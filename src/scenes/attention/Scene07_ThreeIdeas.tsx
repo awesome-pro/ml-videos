@@ -3,7 +3,7 @@ import { interpolate, useCurrentFrame } from "remotion";
 import { SceneShell } from "../../components/shared/SceneShell";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const SCENE_07_DURATION = 780; // 26.0s
+export const SCENE_07_DURATION = 290; // 9.7s — trimmed tail
 
 const IDEAS = [
   {

@@ -6,7 +6,7 @@ import { cardHeightFor, layoutTokenRow } from "../../components/shared/layout";
 import { BANK_1, BANK_2 } from "./examples";
 import { AP_COLORS } from "../../components/shared/theme";
 
-export const SCENE_03_DURATION = 660; // 22.0s
+export const SCENE_03_DURATION = 430; // 14.3s — trimmed tail
 
 const BANK_INDEX = 5; // "bank" is the last token in both bank sentences
 

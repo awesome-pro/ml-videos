@@ -3,7 +3,7 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { SceneShell } from "../../components/shared/SceneShell";
 import { AP_COLORS } from "../../components/shared/theme";
 
-export const SCENE_01_DURATION = 360; // 12.0s
+export const SCENE_01_DURATION = 150; // 5.0s — trimmed tail
 
 const ROADMAP = [
   { label: "Intuition", color: AP_COLORS.query },

@@ -2,10 +2,10 @@ import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { SceneShell } from "../../components/shared/SceneShell";
 import { FlowArrow } from "../../components/shared/FlowArrow";
-import { AP_COLORS } from "../../components/shared/theme";
+import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 import { LeadLine } from "../../components/shared/ui";
 
-export const SCENE_16_DURATION = 840; // 28.0s
+export const SCENE_16_DURATION = 480; // 16.0s — trimmed tail
 
 const HEADS = [
   { label: "syntactic", color: AP_COLORS.query, caption: "grammar links", pattern: [
@@ -129,12 +129,35 @@ export const Scene16_MultiHead: React.FC = () => {
 
 const MiniGrid: React.FC<{ pattern: number[][]; color: string }> = ({ pattern, color }) => {
   return (
-    <div style={{ display: "inline-flex", flexDirection: "column", gap: 5 }}>
+    <div style={{ display: "inline-flex", flexDirection: "column", gap: 4 }}>
       {pattern.map((row, r) => (
-        <div key={r} style={{ display: "flex", gap: 5 }}>
-          {row.map((v, c) => (
-            <div key={c} style={{ width: 22, height: 22, borderRadius: 5, background: color, opacity: 0.14 + v * 0.8, border: `1px solid ${color}` }} />
-          ))}
+        <div key={r} style={{ display: "flex", gap: 4 }}>
+          {row.map((v, c) => {
+            const mag = Math.max(0, Math.min(1, v));
+            return (
+              <div
+                key={c}
+                style={{
+                  width: 38,
+                  height: 38,
+                  borderRadius: 6,
+                  background: color,
+                  opacity: 0.16 + mag * 0.54,
+                  border: `1px solid ${color}`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: AP_COLORS.textPrimary,
+                  fontFamily: AP_FONTS.mono,
+                  fontSize: 15,
+                  fontWeight: 700,
+                  textShadow: "0 1px 3px rgba(0,0,0,0.6)",
+                }}
+              >
+                {v.toFixed(1)}
+              </div>
+            );
+          })}
         </div>
       ))}
     </div>

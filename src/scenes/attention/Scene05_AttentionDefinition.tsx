@@ -3,7 +3,7 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { SceneShell } from "../../components/shared/SceneShell";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const SCENE_05_DURATION = 540; // 18.0s
+export const SCENE_05_DURATION = 270; // 9.0s — trimmed tail
 
 export const Scene05_AttentionDefinition: React.FC = () => {
   const frame = useCurrentFrame();

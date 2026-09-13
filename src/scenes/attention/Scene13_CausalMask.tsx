@@ -5,14 +5,14 @@ import { ScoreGrid } from "../../components/shared/ScoreGrid";
 import { AP_COLORS } from "../../components/shared/theme";
 import { LeadLine } from "../../components/shared/ui";
 
-export const SCENE_13_DURATION = 720; // 24.0s
+export const SCENE_13_DURATION = 400; // 13.3s — explain the causal mask
 
 const N = 6;
 const TOKENS = ["1", "2", "3", "4", "5", "6"];
-const CELL = 58;
-const GAP = 6;
+const CELL = 52;
+const GAP = 5;
 const GRID_X = 960 - (N * (CELL + GAP) - GAP) / 2;
-const GRID_Y = 480;
+const GRID_Y = 368;
 const HIGHLIGHT_ROW = 4; // token 5
 
 export const Scene13_CausalMask: React.FC = () => {
@@ -25,7 +25,6 @@ export const Scene13_CausalMask: React.FC = () => {
     const rowMask: boolean[] = [];
     for (let c = 0; c < N; c++) {
       rowMask.push(c > r); // future tokens are blocked
-      // Allowed cells: diagonal-ish scores; blocked cells given a nominal value.
       rowVals.push(c === r ? 0.9 : c < r ? 0.45 : 0.5);
     }
     values.push(rowVals);
@@ -36,7 +35,15 @@ export const Scene13_CausalMask: React.FC = () => {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const noteOpacity = interpolate(frame, [300, 324], [0, 1], {
+  const blockOpacity = interpolate(frame, [200, 224], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const minusOpacity = interpolate(frame, [254, 278], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const whyOpacity = interpolate(frame, [310, 334], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -45,9 +52,10 @@ export const Scene13_CausalMask: React.FC = () => {
   const hlWidth = (HIGHLIGHT_ROW + 1) * (CELL + GAP) - GAP + 16;
 
   return (
-    <SceneShell kicker="Causal mask (decoder-only)" duration={SCENE_13_DURATION} enterDelay={0}>
-      <LeadLine text="No peeking at the future." y={340} start={10} />
+    <SceneShell kicker="The causal mask" duration={SCENE_13_DURATION} enterDelay={0}>
+      <LeadLine text="A token can’t see the tokens that come after it." y={290} start={8} />
 
+      {/* the score grid, upper triangle masked (rose ✕) */}
       <ScoreGrid
         rows={N}
         cols={N}
@@ -60,7 +68,9 @@ export const Scene13_CausalMask: React.FC = () => {
         cell={CELL}
         gap={GAP}
         color={AP_COLORS.accent}
-        appearDelay={40}
+        appearDelay={60}
+        showValues
+        valueFormat={(v) => v.toFixed(2)}
       />
 
       {/* Highlight the current (query) token row */}
@@ -79,21 +89,16 @@ export const Scene13_CausalMask: React.FC = () => {
         }}
       />
 
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          top: 862,
-          width: 1920,
-          textAlign: "center",
-          opacity: noteOpacity,
-          transform: `translateY(${12 - noteOpacity * 12}px)`,
-        }}
-      >
-        <span style={{ color: AP_COLORS.textPrimary, fontSize: 34, fontWeight: 700 }}>
-          Token 5 attends to 1–5,
-        </span>
-        <span style={{ color: AP_COLORS.negative, fontSize: 34, fontWeight: 700 }}> not to 6.</span>
+      {/* Explanation */}
+      <div style={{ position: "absolute", left: 0, top: 742, width: 1920, textAlign: "center", opacity: blockOpacity, transform: `translateY(${10 - blockOpacity * 10}px)` }}>
+        <span style={{ color: AP_COLORS.negative }}>the rose cells are the future → masked (blocked)</span>
+      </div>
+      <div style={{ position: "absolute", left: 0, top: 788, width: 1920, textAlign: "center", opacity: minusOpacity, transform: `translateY(${10 - minusOpacity * 10}px)` }}>
+        <span style={{ color: AP_COLORS.textPrimary }}>a masked score = −∞</span>
+        <span style={{ color: AP_COLORS.textSecondary }}>, so softmax gives it weight 0.</span>
+      </div>
+      <div style={{ position: "absolute", left: 0, top: 834, width: 1920, textAlign: "center", opacity: whyOpacity }}>
+        <span style={{ color: AP_COLORS.textPrimary, fontWeight: 700 }}>Token 5 is written before token 6 — it must never see 6.</span>
       </div>
     </SceneShell>
   );

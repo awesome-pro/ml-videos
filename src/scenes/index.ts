@@ -21,6 +21,10 @@ import {
   Scene04_ContextIntuition,
 } from "./attention/Scene04_ContextIntuition";
 import {
+  SCENE_ANIMAL_INFERENCE_DURATION as AP_SCENE_ANIMAL_INFERENCE_DURATION,
+  SceneAnimalInference,
+} from "./attention/SceneAnimalInference";
+import {
   SCENE_05_DURATION as AP_SCENE_05_DURATION,
   Scene05_AttentionDefinition,
 } from "./attention/Scene05_AttentionDefinition";
@@ -33,6 +37,14 @@ import {
   Scene07_ThreeIdeas,
 } from "./attention/Scene07_ThreeIdeas";
 import {
+  SCENE_WORKED_QKV_DURATION as AP_SCENE_WORKED_QKV_DURATION,
+  SceneWorkedQKVExample,
+} from "./attention/SceneWorkedQKVExample";
+import {
+  SCENE_ROLES_BRIDGE_DURATION as AP_SCENE_ROLES_BRIDGE_DURATION,
+  SceneRolesBridge,
+} from "./attention/SceneRolesBridge";
+import {
   SCENE_08_DURATION as AP_SCENE_08_DURATION,
   Scene08_QKVNames,
 } from "./attention/Scene08_QKVNames";
@@ -40,6 +52,10 @@ import {
   SCENE_09_DURATION as AP_SCENE_09_DURATION,
   Scene09_DefinitionRecap,
 } from "./attention/Scene09_DefinitionRecap";
+import {
+  SCENE_TOKENS_TO_IDS_DURATION as AP_SCENE_TOKENS_TO_IDS_DURATION,
+  SceneTokensToIDs,
+} from "./attention/SceneTokensToIDs";
 import {
   SCENE_10_DURATION as AP_SCENE_10_DURATION,
   Scene10_TokensToVectors,
@@ -76,6 +92,14 @@ import {
   SCENE_18_DURATION as AP_SCENE_18_DURATION,
   Scene18_ConcreteWalkthrough,
 } from "./attention/Scene18_ConcreteWalkthrough";
+import {
+  SCENE_EXAMPLE_IT_DURATION,
+  SceneExampleIt,
+} from "./attention/SceneExampleIt";
+import {
+  SCENE_RIVER_ATTENDS_BANK_DURATION,
+  SceneRiverAttendsBank,
+} from "./attention/SceneRiverAttendsBank";
 import { KVCACHE_DURATION, KVCache } from "../episodes/KVCache";
 import { KV_INTRO_DURATION, KVIntroCard } from "./kv/KVIntroCard";
 import { KV_AUTOREG_DURATION, KVAutoregressive } from "./kv/KVAutoregressive";
@@ -161,6 +185,15 @@ export const scenes: SceneDef[] = [
     defaultProps: {},
   },
   {
+    id: "APAnimalInference",
+    component: SceneAnimalInference,
+    durationInFrames: AP_SCENE_ANIMAL_INFERENCE_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
     id: "APAttentionDefinition",
     component: Scene05_AttentionDefinition,
     durationInFrames: AP_SCENE_05_DURATION,
@@ -188,6 +221,24 @@ export const scenes: SceneDef[] = [
     defaultProps: {},
   },
   {
+    id: "APWorkedQKVExample",
+    component: SceneWorkedQKVExample,
+    durationInFrames: AP_SCENE_WORKED_QKV_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "APRolesBridge",
+    component: SceneRolesBridge,
+    durationInFrames: AP_SCENE_ROLES_BRIDGE_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
     id: "APQKVNames",
     component: Scene08_QKVNames,
     durationInFrames: AP_SCENE_08_DURATION,
@@ -200,6 +251,15 @@ export const scenes: SceneDef[] = [
     id: "APDefinitionRecap",
     component: Scene09_DefinitionRecap,
     durationInFrames: AP_SCENE_09_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "APTokensToIDs",
+    component: SceneTokensToIDs,
+    durationInFrames: AP_SCENE_TOKENS_TO_IDS_DURATION,
     fps: FPS,
     width: WIDTH,
     height: HEIGHT,
@@ -281,6 +341,24 @@ export const scenes: SceneDef[] = [
     id: "APConcreteWalkthrough",
     component: Scene18_ConcreteWalkthrough,
     durationInFrames: AP_SCENE_18_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "APExampleIt",
+    component: SceneExampleIt,
+    durationInFrames: SCENE_EXAMPLE_IT_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "APRiverAttendsBank",
+    component: SceneRiverAttendsBank,
+    durationInFrames: SCENE_RIVER_ATTENDS_BANK_DURATION,
     fps: FPS,
     width: WIDTH,
     height: HEIGHT,

@@ -4,7 +4,7 @@ import { SceneShell } from "../../components/shared/SceneShell";
 import { FlowArrow } from "../../components/shared/FlowArrow";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const SCENE_17_DURATION = 780; // 26.0s
+export const SCENE_17_DURATION = 380; // 12.7s — trimmed tail
 
 const STEPS = [
   { label: "tokens", color: AP_COLORS.textPrimary },

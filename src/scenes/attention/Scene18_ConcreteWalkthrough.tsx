@@ -8,12 +8,12 @@ import { ANIMAL_INDEX, ANIMAL_TIRED } from "./examples";
 import { AP_COLORS } from "../../components/shared/theme";
 import { LeadLine } from "../../components/shared/ui";
 
-export const SCENE_18_DURATION = 1080; // 36.0s
+export const SCENE_18_DURATION = 760; // 25.3s — trimmed tail + tighter stepping
 
 const IT_INDEX = 7;
 const Y = 470;
 const BASE = 70;
-const WINDOW = 78;
+const WINDOW = 54;
 const N = ANIMAL_TIRED.length;
 
 // Which previous/self tokens each token attends to (deterministic, plausible).

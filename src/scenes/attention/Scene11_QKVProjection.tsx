@@ -5,12 +5,18 @@ import { FlowArrow } from "../../components/shared/FlowArrow";
 import { MathText, MVar, MSub } from "../../components/shared/MathText";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const SCENE_11_DURATION = 720; // 24.0s
+export const SCENE_11_DURATION = 360; // 12.0s — trimmed tail
 
-const X = { cx: 440, cy: 560, cols: 4, rows: 3, cell: 26, gap: 5 };
-const X_RIGHT = 500;
+const X = { cx: 440, cy: 560, cols: 4, rows: 3, cell: 38, gap: 5 };
+const X_RIGHT = 560;
 const OUT_LEFT = 1260;
 const ARROW_END = 1040;
+// The 3 token vectors (the "X" matrix) — shown as real numbers.
+const X_VALUES: number[][] = [
+  [0.4, -0.2, 0.9, 0.1],
+  [0.6, 0.3, -0.5, 0.2],
+  [-0.3, 0.8, 0.1, 0.5],
+];
 const OUTPUTS = [
   { letter: "Q", name: "QUERY", color: AP_COLORS.query, bg: AP_COLORS.queryBg, border: AP_COLORS.queryBorder, y: 400, w: "Wq" },
   { letter: "K", name: "KEY", color: AP_COLORS.key, bg: AP_COLORS.keyBg, border: AP_COLORS.keyBorder, y: 565, w: "Wk" },
@@ -49,9 +55,30 @@ export const Scene11_QKVProjection: React.FC = () => {
           {Array.from({ length: X.rows }).map((_, r) => (
             <div key={r} style={{ display: "flex", gap: X.gap }}>
               {Array.from({ length: X.cols }).map((_, c) => {
-                const v = ((r * 3 + c) % 6) / 6 + 0.3;
+                const v = X_VALUES[r][c];
+                const mag = Math.max(0, Math.min(1, Math.abs(v)));
                 return (
-                  <div key={c} style={{ width: X.cell, height: X.cell, borderRadius: 5, background: AP_COLORS.accent, opacity: v, border: `1px solid ${AP_COLORS.accentBorder}` }} />
+                  <div
+                    key={c}
+                    style={{
+                      width: X.cell,
+                      height: X.cell,
+                      borderRadius: 6,
+                      background: AP_COLORS.accent,
+                      opacity: 0.16 + mag * 0.56,
+                      border: `1px solid ${AP_COLORS.accentBorder}`,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: AP_COLORS.textPrimary,
+                      fontFamily: AP_FONTS.mono,
+                      fontSize: Math.round(X.cell * 0.42),
+                      fontWeight: 700,
+                      textShadow: "0 1px 3px rgba(0,0,0,0.6)",
+                    }}
+                  >
+                    {v.toFixed(1)}
+                  </div>
                 );
               })}
             </div>

@@ -8,7 +8,7 @@ import { BANK_1, BANK_2 } from "./examples";
 import { AP_COLORS } from "../../components/shared/theme";
 import { LeadLine, Tag } from "../../components/shared/ui";
 
-export const SCENE_04_DURATION = 720; // 24.0s
+export const SCENE_04_DURATION = 520; // 17.3s — trimmed tail
 
 const BANK_INDEX = 5;
 const RIVER_INDEX = 4;

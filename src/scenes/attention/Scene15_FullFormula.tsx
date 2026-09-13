@@ -4,7 +4,7 @@ import { SceneShell } from "../../components/shared/SceneShell";
 import { MathText, MVar, MSup, MSub } from "../../components/shared/MathText";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const SCENE_15_DURATION = 720; // 24.0s
+export const SCENE_15_DURATION = 280; // 9.3s — trimmed tail
 
 export const Scene15_FullFormula: React.FC = () => {
   const frame = useCurrentFrame();
@@ -107,6 +107,13 @@ const MatrixSchematic: React.FC = () => {
   const size = 34;
   const gap = 5;
   const highlightRow = 2;
+  // The attention score matrix for 4 query tokens; 0 = future (masked).
+  const MATRIX = [
+    [0.9, 0, 0, 0],
+    [0.4, 0.9, 0, 0],
+    [0.3, 0.5, 0.9, 0],
+    [0.2, 0.3, 0.6, 0.9],
+  ];
   const glow = interpolate(frame - 220, [0, 16], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
@@ -125,20 +132,35 @@ const MatrixSchematic: React.FC = () => {
       <div style={{ display: "flex", flexDirection: "column", gap }}>
         {[0, 1, 2, 3].map((r) => (
           <div key={r} style={{ display: "flex", gap }}>
-            {[0, 1, 2, 3].map((c) => (
-              <div
-                key={c}
-                style={{
-                  width: size,
-                  height: size,
-                  borderRadius: 6,
-                  background: c > r ? AP_COLORS.negative : AP_COLORS.accent,
-                  opacity: c > r ? 0.25 : 0.35 + 0.4 * (r === highlightRow && c <= r ? 1 : 0),
-                  border: `1.5px solid ${r === highlightRow && c <= r ? AP_COLORS.accentBorder : AP_COLORS.gridLine}`,
-                  boxShadow: r === highlightRow ? `0 0 16px rgba(154,123,255,${glow * 0.4})` : "none",
-                }}
-              />
-            ))}
+            {[0, 1, 2, 3].map((c) => {
+              const isMasked = c > r;
+              const v = MATRIX[r][c];
+              const mag = Math.max(0, Math.min(1, v));
+              return (
+                <div
+                  key={c}
+                  style={{
+                    width: size,
+                    height: size,
+                    borderRadius: 6,
+                    background: isMasked ? AP_COLORS.negative : AP_COLORS.accent,
+                    opacity: isMasked ? 0.25 : 0.18 + mag * (0.46 + (r === highlightRow ? 0.12 : 0)),
+                    border: `1.5px solid ${r === highlightRow && c <= r ? AP_COLORS.accentBorder : AP_COLORS.gridLine}`,
+                    boxShadow: r === highlightRow ? `0 0 16px rgba(154,123,255,${glow * 0.4})` : "none",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: AP_COLORS.textPrimary,
+                    fontFamily: AP_FONTS.mono,
+                    fontSize: Math.round(size * 0.38),
+                    fontWeight: 700,
+                    textShadow: "0 1px 3px rgba(0,0,0,0.6)",
+                  }}
+                >
+                  {isMasked ? "−∞" : v.toFixed(1)}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>

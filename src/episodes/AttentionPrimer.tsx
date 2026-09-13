@@ -4,11 +4,15 @@ import { SCENE_01_DURATION, Scene01_IntroCard } from "../scenes/attention/Scene0
 import { SCENE_02_DURATION, Scene02_AmbiguityHook } from "../scenes/attention/Scene02_AmbiguityHook";
 import { SCENE_03_DURATION, Scene03_BankAmbiguity } from "../scenes/attention/Scene03_BankAmbiguity";
 import { SCENE_04_DURATION, Scene04_ContextIntuition } from "../scenes/attention/Scene04_ContextIntuition";
+import { SCENE_ANIMAL_INFERENCE_DURATION, SceneAnimalInference } from "../scenes/attention/SceneAnimalInference";
 import { SCENE_05_DURATION, Scene05_AttentionDefinition } from "../scenes/attention/Scene05_AttentionDefinition";
 import { SCENE_06_DURATION, Scene06_BankAttentionWeights } from "../scenes/attention/Scene06_BankAttentionWeights";
 import { SCENE_07_DURATION, Scene07_ThreeIdeas } from "../scenes/attention/Scene07_ThreeIdeas";
+import { SCENE_WORKED_QKV_DURATION, SceneWorkedQKVExample } from "../scenes/attention/SceneWorkedQKVExample";
+import { SCENE_ROLES_BRIDGE_DURATION, SceneRolesBridge } from "../scenes/attention/SceneRolesBridge";
 import { SCENE_08_DURATION, Scene08_QKVNames } from "../scenes/attention/Scene08_QKVNames";
 import { SCENE_09_DURATION, Scene09_DefinitionRecap } from "../scenes/attention/Scene09_DefinitionRecap";
+import { SCENE_TOKENS_TO_IDS_DURATION, SceneTokensToIDs } from "../scenes/attention/SceneTokensToIDs";
 import { SCENE_10_DURATION, Scene10_TokensToVectors } from "../scenes/attention/Scene10_TokensToVectors";
 import { SCENE_11_DURATION, Scene11_QKVProjection } from "../scenes/attention/Scene11_QKVProjection";
 import { SCENE_12_DURATION, Scene12_ScoresAndScale } from "../scenes/attention/Scene12_ScoresAndScale";
@@ -19,16 +23,23 @@ import { SCENE_16_DURATION, Scene16_MultiHead } from "../scenes/attention/Scene1
 import { SCENE_17_DURATION, Scene17_FullPipelineRecap } from "../scenes/attention/Scene17_FullPipelineRecap";
 import { SCENE_18_DURATION, Scene18_ConcreteWalkthrough } from "../scenes/attention/Scene18_ConcreteWalkthrough";
 
+// "Attention From First Principles" — deterministic, 22-scene, trimmed to
+// the animation + a short hold (no dead tail). Every scene is a pure function
+// of the frame (see AGENTS.md).
 export const ATTENTION_PRIMER_DURATION =
   SCENE_01_DURATION +
   SCENE_02_DURATION +
   SCENE_03_DURATION +
   SCENE_04_DURATION +
+  SCENE_ANIMAL_INFERENCE_DURATION +
   SCENE_05_DURATION +
   SCENE_06_DURATION +
   SCENE_07_DURATION +
+  SCENE_WORKED_QKV_DURATION +
+  SCENE_ROLES_BRIDGE_DURATION +
   SCENE_08_DURATION +
   SCENE_09_DURATION +
+  SCENE_TOKENS_TO_IDS_DURATION +
   SCENE_10_DURATION +
   SCENE_11_DURATION +
   SCENE_12_DURATION +
@@ -39,7 +50,6 @@ export const ATTENTION_PRIMER_DURATION =
   SCENE_17_DURATION +
   SCENE_18_DURATION;
 
-// "Attention From First Principles" — a fresh, deterministic full video.
 export const AttentionPrimer: React.FC = () => {
   return (
     <Series>
@@ -55,6 +65,9 @@ export const AttentionPrimer: React.FC = () => {
       <Series.Sequence durationInFrames={SCENE_04_DURATION}>
         <Scene04_ContextIntuition />
       </Series.Sequence>
+      <Series.Sequence durationInFrames={SCENE_ANIMAL_INFERENCE_DURATION}>
+        <SceneAnimalInference />
+      </Series.Sequence>
       <Series.Sequence durationInFrames={SCENE_05_DURATION}>
         <Scene05_AttentionDefinition />
       </Series.Sequence>
@@ -64,11 +77,20 @@ export const AttentionPrimer: React.FC = () => {
       <Series.Sequence durationInFrames={SCENE_07_DURATION}>
         <Scene07_ThreeIdeas />
       </Series.Sequence>
+      <Series.Sequence durationInFrames={SCENE_WORKED_QKV_DURATION}>
+        <SceneWorkedQKVExample />
+      </Series.Sequence>
+      <Series.Sequence durationInFrames={SCENE_ROLES_BRIDGE_DURATION}>
+        <SceneRolesBridge />
+      </Series.Sequence>
       <Series.Sequence durationInFrames={SCENE_08_DURATION}>
         <Scene08_QKVNames />
       </Series.Sequence>
       <Series.Sequence durationInFrames={SCENE_09_DURATION}>
         <Scene09_DefinitionRecap />
+      </Series.Sequence>
+      <Series.Sequence durationInFrames={SCENE_TOKENS_TO_IDS_DURATION}>
+        <SceneTokensToIDs />
       </Series.Sequence>
       <Series.Sequence durationInFrames={SCENE_10_DURATION}>
         <Scene10_TokensToVectors />
