@@ -6,7 +6,7 @@ import { MemBar } from "../../components/kv/MemBar";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_NOT_CONSTANT_DURATION = 600; // 20.0s
+export const KV_NOT_CONSTANT_DURATION = 295; // 20.0s
 
 const QX = 320;
 const SLOT_START = 440;

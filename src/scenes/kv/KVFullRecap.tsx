@@ -6,7 +6,7 @@ import { KvSlot } from "../../components/kv/KvSlot";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_FULL_RECAP_DURATION = 720; // 24.0s
+export const KV_FULL_RECAP_DURATION = 560; // 24.0s
 
 const CHAIN = [
   { label: "one token at a time", color: AP_COLORS.textPrimary },

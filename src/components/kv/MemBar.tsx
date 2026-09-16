@@ -45,7 +45,7 @@ export const MemBar: React.FC<MemBarProps> = ({
   return (
     <div style={{ position: "absolute", left: x, top: y, width, opacity }}>
       {label ? (
-        <div style={{ marginBottom: 8, color: AP_COLORS.textSecondary, fontSize: 15, fontWeight: 600, fontFamily: AP_FONTS.sans }}>
+        <div style={{ marginBottom: 8, color: AP_COLORS.textSecondary, fontSize: 24, fontWeight: 600, fontFamily: AP_FONTS.sans }}>
           {label}
         </div>
       ) : null}

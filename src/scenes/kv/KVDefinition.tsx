@@ -5,7 +5,7 @@ import { KvSlot, KvWordLabel } from "../../components/kv/KvSlot";
 import { FlowArrow } from "../../components/shared/FlowArrow";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_DEFINITION_DURATION = 480; // 16.0s
+export const KV_DEFINITION_DURATION = 240; // 16.0s
 
 const SLOT_W = 132;
 const SLOT_H = 58;
@@ -43,7 +43,7 @@ export const KVDefinition: React.FC = () => {
 
       {/* A small illustration: computed once → kept and reused */}
       <div style={{ position: "absolute", left: 0, top: 470, width: 1920, textAlign: "center", opacity: railOpacity }}>
-        <span style={{ color: AP_COLORS.textMuted, fontSize: 22, fontWeight: 700, letterSpacing: "0.22em", fontFamily: AP_FONTS.sans }}>
+        <span style={{ color: AP_COLORS.textMuted, fontSize: 26, fontWeight: 700, letterSpacing: "0.22em", fontFamily: AP_FONTS.sans }}>
           THE KV CACHE
         </span>
       </div>

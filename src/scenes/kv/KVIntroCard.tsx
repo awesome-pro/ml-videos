@@ -3,7 +3,7 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { SceneShell } from "../../components/shared/SceneShell";
 import { AP_COLORS } from "../../components/shared/theme";
 
-export const KV_INTRO_DURATION = 360; // 12.0s
+export const KV_INTRO_DURATION = 125; // 12.0s
 
 const ROADMAP = [
   { label: "The problem", color: AP_COLORS.negative },

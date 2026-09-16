@@ -6,7 +6,7 @@ import { AttentionArc } from "../../components/shared/AttentionArc";
 import { FlowArrow } from "../../components/shared/FlowArrow";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_WORKED_DURATION = 920; // ~30.7s
+export const KV_WORKED_DURATION = 645; // ~30.7s
 
 const SLOT_W = 128;
 const SLOT_H = 58;
@@ -71,7 +71,7 @@ export const KVWorkedExample: React.FC = () => {
       <ChipRow x={QX} yRows={[390, 470, 550]} labels={[`Q${qPrefix}`, `K${qPrefix}`, `V${qPrefix}`]} colors={[AP_COLORS.query, AP_COLORS.key, AP_COLORS.value]} opacity={activeChips} />
 
       {/* Cache rail */}
-      <div style={{ position: "absolute", left: 0, top: 560, width: 1920, textAlign: "center", color: AP_COLORS.textMuted, fontSize: 22, fontWeight: 700, letterSpacing: "0.2em", fontFamily: AP_FONTS.sans }}>
+      <div style={{ position: "absolute", left: 0, top: 560, width: 1920, textAlign: "center", color: AP_COLORS.textMuted, fontSize: 26, fontWeight: 700, letterSpacing: "0.2em", fontFamily: AP_FONTS.sans }}>
         KV CACHE · ALREADY COMPUTED
       </div>
       {CENTERS.map((cx, i) => {

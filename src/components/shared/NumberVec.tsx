@@ -75,7 +75,7 @@ export const NumberVec: React.FC<NumberVecProps> = ({
           justifyContent: "center",
           color: textColor ?? AP_COLORS.textPrimary,
           fontFamily: AP_FONTS.mono,
-          fontSize: Math.max(15, Math.round(cellH * 0.52)),
+          fontSize: Math.max(18, Math.round(cellH * 0.56)),
           fontWeight: 700,
           letterSpacing: "-0.02em",
           textShadow: "0 1px 3px rgba(0,0,0,0.65)",

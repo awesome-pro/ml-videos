@@ -6,7 +6,7 @@ import { AttentionArc } from "../../components/shared/AttentionArc";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_DECODE_DURATION = 600; // 20.0s
+export const KV_DECODE_DURATION = 590; // 20.0s
 
 const SLOT_W = 120;
 const SLOT_H = 56;
@@ -34,7 +34,7 @@ export const KVDecode: React.FC = () => {
     <SceneShell kicker="Decode" duration={KV_DECODE_DURATION} enterDelay={0}>
       <LeadLine text="One new token at a time" y={300} start={8} />
 
-      <div style={{ position: "absolute", left: 0, top: 372, width: 1920, textAlign: "center", opacity: chipOpacity, color: AP_COLORS.textMuted, fontSize: 22, fontWeight: 700, letterSpacing: "0.2em", fontFamily: AP_FONTS.sans }}>
+      <div style={{ position: "absolute", left: 0, top: 372, width: 1920, textAlign: "center", opacity: chipOpacity, color: AP_COLORS.textMuted, fontSize: 26, fontWeight: 700, letterSpacing: "0.2em", fontFamily: AP_FONTS.sans }}>
         KV CACHE · read + append
       </div>
 
@@ -76,7 +76,7 @@ export const KVDecode: React.FC = () => {
 
       {/* Append arrow into the newest slot */}
       {count > 0 ? (
-        <div style={{ position: "absolute", left: START + 7 * (SLOT_W + GAP) + 30, top: SLOT_Y - 70, color: AP_COLORS.accent, fontSize: 22, fontWeight: 700, opacity: chipOpacity, fontFamily: AP_FONTS.sans }}>
+        <div style={{ position: "absolute", left: START + 7 * (SLOT_W + GAP) + 30, top: SLOT_Y - 70, color: AP_COLORS.accent, fontSize: 26, fontWeight: 700, opacity: chipOpacity, fontFamily: AP_FONTS.sans }}>
           → append
         </div>
       ) : null}
@@ -93,7 +93,7 @@ export const KVDecode: React.FC = () => {
 };
 
 const MiniChip: React.FC<{ label: string; color: string }> = ({ label, color }) => (
-  <div style={{ padding: "9px 20px", borderRadius: 999, background: `${color}22`, border: `1.5px solid ${color}`, color, fontSize: 22, fontWeight: 700, fontFamily: AP_FONTS.mono, textAlign: "center" }}>
+  <div style={{ padding: "9px 20px", borderRadius: 999, background: `${color}22`, border: `1.5px solid ${color}`, color, fontSize: 26, fontWeight: 700, fontFamily: AP_FONTS.mono, textAlign: "center" }}>
     {label}
   </div>
 );

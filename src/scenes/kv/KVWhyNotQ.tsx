@@ -4,7 +4,7 @@ import { SceneShell } from "../../components/shared/SceneShell";
 import { AttentionArc } from "../../components/shared/AttentionArc";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_WHY_NOT_Q_DURATION = 720; // 24.0s
+export const KV_WHY_NOT_Q_DURATION = 501; // 24.0s
 
 const TOKEN_X = 960;
 const TOKEN_Y = 300;
@@ -56,10 +56,10 @@ export const KVWhyNotQ: React.FC = () => {
         <div style={{ padding: "16px 26px", borderRadius: 14, background: "rgba(109,139,255,0.06)", border: "1.5px dashed rgba(255,255,255,0.16)", color: AP_COLORS.textMuted, fontSize: 28, fontWeight: 700, fontFamily: AP_FONTS.mono }}>
           Q3
         </div>
-        <div style={{ marginTop: 12, color: AP_COLORS.textSecondary, fontSize: 22, fontWeight: 500, fontFamily: AP_FONTS.sans }}>
+        <div style={{ marginTop: 12, color: AP_COLORS.textSecondary, fontSize: 26, fontWeight: 500, fontFamily: AP_FONTS.sans }}>
           used <span style={{ color: AP_COLORS.negative, fontWeight: 700 }}>once</span> — when token 3 was current
         </div>
-        <div style={{ marginTop: 6, color: AP_COLORS.textMuted, fontSize: 20, fontWeight: 500, fontFamily: AP_FONTS.sans }}>
+        <div style={{ marginTop: 6, color: AP_COLORS.textMuted, fontSize: 24, fontWeight: 500, fontFamily: AP_FONTS.sans }}>
           no future token needs it
         </div>
       </div>
@@ -70,7 +70,7 @@ export const KVWhyNotQ: React.FC = () => {
           <KvMini label="K3" color={AP_COLORS.key} />
           <KvMini label="V3" color={AP_COLORS.value} />
         </div>
-        <div style={{ marginTop: 12, color: AP_COLORS.key, fontSize: 22, fontWeight: 700, fontFamily: AP_FONTS.sans }}>
+        <div style={{ marginTop: 12, color: AP_COLORS.key, fontSize: 26, fontWeight: 700, fontFamily: AP_FONTS.sans }}>
           reused by every future token
         </div>
       </div>
@@ -82,7 +82,7 @@ export const KVWhyNotQ: React.FC = () => {
           const use = arcUse(i);
           return (
             <div key={n} style={{ position: "absolute", left: 250, top: qy, opacity: use, display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ color: AP_COLORS.query, fontSize: 22, fontWeight: 700, fontFamily: AP_FONTS.mono }}>Q{n}</span>
+              <span style={{ color: AP_COLORS.query, fontSize: 26, fontWeight: 700, fontFamily: AP_FONTS.mono }}>Q{n}</span>
             </div>
           );
         })}

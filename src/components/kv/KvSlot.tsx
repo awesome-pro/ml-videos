@@ -144,7 +144,7 @@ export const KvSlot: React.FC<KvSlotProps> = ({
           <span
             style={{
               fontFamily: AP_FONTS.sans,
-              fontSize: 13,
+              fontSize: 22,
               fontWeight: 800,
               color: AP_COLORS.negative,
               letterSpacing: "0.06em",
@@ -181,7 +181,7 @@ const SlotHalf: React.FC<{
         borderRight: "transparent",
       }}
     >
-      <span style={{ fontFamily: AP_FONTS.mono, fontSize: 21, fontWeight: 700, color, letterSpacing: "0.02em" }}>
+      <span style={{ fontFamily: AP_FONTS.mono, fontSize: 26, fontWeight: 700, color, letterSpacing: "0.02em" }}>
         {label}
       </span>
     </div>

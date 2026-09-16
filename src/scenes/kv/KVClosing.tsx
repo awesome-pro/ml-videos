@@ -3,7 +3,7 @@ import { interpolate, useCurrentFrame } from "remotion";
 import { SceneShell } from "../../components/shared/SceneShell";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_CLOSING_DURATION = 480; // 16.0s
+export const KV_CLOSING_DURATION = 305; // 16.0s
 
 const LINES = [
   { text: "Store the past Keys and Values.", color: AP_COLORS.key },

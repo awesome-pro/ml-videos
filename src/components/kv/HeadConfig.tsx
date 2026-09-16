@@ -137,7 +137,7 @@ export const HeadConfig: React.FC<HeadConfigProps> = ({
       {/* Memory bar (fraction of a full MH KV cache) */}
       <MemBar x={BAR_X} y={BAR_Y} width={WIDTH - BAR_X * 2} height={BAR_H} fill={memFraction} color={color} label={`KV cache · ${Math.round(memFraction * 100)}%`} appearDelay={appearDelay + 60} />
       {caption ? (
-        <div style={{ marginTop: 12, textAlign: "center", color: AP_COLORS.textSecondary, fontSize: 16, fontWeight: 500, fontFamily: AP_FONTS.sans }}>
+        <div style={{ marginTop: 12, textAlign: "center", color: AP_COLORS.textSecondary, fontSize: 24, fontWeight: 500, fontFamily: AP_FONTS.sans }}>
           {caption}
         </div>
       ) : null}
@@ -146,7 +146,7 @@ export const HeadConfig: React.FC<HeadConfigProps> = ({
 };
 
 const Label: React.FC<{ text: string; y: number; color: string }> = ({ text, y, color }) => (
-  <div style={{ position: "absolute", left: 0, top: y, width: WIDTH, textAlign: "center", color, fontSize: 16, fontWeight: 600, letterSpacing: "0.04em", fontFamily: AP_FONTS.sans }}>
+  <div style={{ position: "absolute", left: 0, top: y, width: WIDTH, textAlign: "center", color, fontSize: 24, fontWeight: 600, letterSpacing: "0.04em", fontFamily: AP_FONTS.sans }}>
     {text}
   </div>
 );
@@ -155,8 +155,8 @@ const HeadDot: React.FC<{ x: number; y: number; color: string; label: string; de
   const frame = useCurrentFrame();
   const opacity = interpolate(frame - delay, [0, 14], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
-    <div style={{ position: "absolute", left: x - 12, top: y - 12, width: 24, height: 24, borderRadius: "50%", background: `${color}33`, border: `1.5px solid ${color}`, boxShadow: AP_COLORS.cardShadowSoft, opacity, display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <span style={{ color, fontSize: 9, fontWeight: 700, fontFamily: AP_FONTS.mono }}>{label}</span>
+    <div style={{ position: "absolute", left: x - 15, top: y - 15, width: 30, height: 30, borderRadius: "50%", background: `${color}33`, border: `1.5px solid ${color}`, boxShadow: AP_COLORS.cardShadowSoft, opacity, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <span style={{ color, fontSize: 19, fontWeight: 700, fontFamily: AP_FONTS.mono }}>{label}</span>
     </div>
   );
 };

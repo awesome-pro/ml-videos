@@ -36,7 +36,7 @@ export type EquationStepsProps = {
 
 export const EquationSteps: React.FC<EquationStepsProps> = ({
   steps,
-  size = 58,
+  size = 66,
   y = 372,
   crossfade = 16,
   showRail = true,
@@ -89,8 +89,8 @@ export const EquationSteps: React.FC<EquationStepsProps> = ({
                   width: 1920,
                   textAlign: "center",
                   color: AP_COLORS.textSecondary,
-                  fontSize: 28,
-                  fontWeight: 500,
+                  fontSize: 32,
+                  fontWeight: 600,
                   fontFamily: AP_FONTS.sans,
                   padding: "0 200px",
                   lineHeight: 1.45,
@@ -139,7 +139,7 @@ export const EquationSteps: React.FC<EquationStepsProps> = ({
             style={{
               marginLeft: 16,
               color: AP_COLORS.textMuted,
-              fontSize: 22,
+              fontSize: 24,
               fontWeight: 600,
               fontFamily: AP_FONTS.mono,
               letterSpacing: "0.06em",

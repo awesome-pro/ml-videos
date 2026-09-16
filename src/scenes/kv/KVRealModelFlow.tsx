@@ -59,7 +59,7 @@ export const KVRealModelFlow: React.FC = () => {
       {LAYERS.map((l) => (
         <div key={l.label} style={{ position: "absolute", left: CARD_LEFT, top: l.y, width: CARD_W, padding: "18px 20px", borderRadius: 16, background: AP_COLORS.surface, border: `1.5px solid ${AP_COLORS.surfaceBorderActive}`, boxShadow: AP_COLORS.cardShadowSoft, opacity: oStack }}>
           <div style={{ color: AP_COLORS.textPrimary, fontSize: 26, fontWeight: 700, fontFamily: AP_FONTS.sans }}>{l.label}</div>
-          <div style={{ marginTop: 10, color: AP_COLORS.textMuted, fontSize: 19, fontWeight: 500, fontFamily: AP_FONTS.sans }}>
+          <div style={{ marginTop: 10, color: AP_COLORS.textMuted, fontSize: 24, fontWeight: 500, fontFamily: AP_FONTS.sans }}>
             attention → reads its cache → writes a new K, V
           </div>
         </div>
@@ -78,7 +78,7 @@ export const KVRealModelFlow: React.FC = () => {
         const appendStart = DECODE_START + i * LAYER_SPAN;
         return (
           <React.Fragment key={`c${i}`}>
-            <div style={{ position: "absolute", left: CACHE_LABEL_X, top: l.y + 4, transform: "translateX(-50%)", color: AP_COLORS.accent, fontSize: 20, fontWeight: 700, opacity: oStack, fontFamily: AP_FONTS.sans }}>
+            <div style={{ position: "absolute", left: CACHE_LABEL_X, top: l.y + 4, transform: "translateX(-50%)", color: AP_COLORS.accent, fontSize: 24, fontWeight: 700, opacity: oStack, fontFamily: AP_FONTS.sans }}>
               {l.label} cache
             </div>
             {Array.from({ length: slotCount }, (_, s) => {
@@ -105,7 +105,7 @@ export const KVRealModelFlow: React.FC = () => {
       })}
 
       {/* The single new token descending during decode */}
-      <div style={{ position: "absolute", left: TOKEN_X, top: tokenY, transform: "translate(-50%,-50%)", padding: "9px 18px", borderRadius: 999, background: `${AP_COLORS.query}22`, border: `1.5px solid ${AP_COLORS.query}`, color: AP_COLORS.query, fontSize: 21, fontWeight: 700, opacity: tokenOpacity, fontFamily: AP_FONTS.sans, boxShadow: AP_COLORS.cardShadowSoft, whiteSpace: "nowrap" }}>
+      <div style={{ position: "absolute", left: TOKEN_X, top: tokenY, transform: "translate(-50%,-50%)", padding: "9px 18px", borderRadius: 999, background: `${AP_COLORS.query}22`, border: `1.5px solid ${AP_COLORS.query}`, color: AP_COLORS.query, fontSize: 26, fontWeight: 700, opacity: tokenOpacity, fontFamily: AP_FONTS.sans, boxShadow: AP_COLORS.cardShadowSoft, whiteSpace: "nowrap" }}>
         new token
       </div>
 

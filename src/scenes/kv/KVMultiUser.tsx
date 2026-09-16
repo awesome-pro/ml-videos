@@ -6,7 +6,7 @@ import { MemBar } from "../../components/kv/MemBar";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_MULTI_USER_DURATION = 600; // 20.0s
+export const KV_MULTI_USER_DURATION = 345; // 20.0s
 
 const USERS = ["user 1", "user 2", "user 3", "user 4", "… user N"];
 const ROW_Y = [360, 420, 480, 540, 600];
@@ -24,7 +24,7 @@ export const KVMultiUser: React.FC = () => {
 
       {USERS.map((u, i) => (
         <React.Fragment key={u}>
-          <div style={{ position: "absolute", left: 240, top: ROW_Y[i] + 8, color: AP_COLORS.textSecondary, fontSize: 22, fontWeight: 600, fontFamily: AP_FONTS.sans, opacity: rowsOpacity * interpolate(frame - (20 + i * 12), [0, 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+          <div style={{ position: "absolute", left: 240, top: ROW_Y[i] + 8, color: AP_COLORS.textSecondary, fontSize: 26, fontWeight: 600, fontFamily: AP_FONTS.sans, opacity: rowsOpacity * interpolate(frame - (20 + i * 12), [0, 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
             {u}
           </div>
           {Array.from({ length: Math.min(8, 6 + i) }, (_, s) => (

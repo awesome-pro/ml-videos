@@ -6,7 +6,7 @@ import { FlowArrow } from "../../components/shared/FlowArrow";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_PREFILL_DURATION = 600; // 20.0s
+export const KV_PREFILL_DURATION = 325; // 20.0s
 
 const TOKEN_GRID_Y = 520;
 const CACHE_Y = 520;
@@ -70,13 +70,13 @@ const TokenGrid: React.FC = () => {
         <div
           key={`${r}-${c}`}
           style={{
-            width: 78,
-            height: 34,
+            width: 86,
+            height: 40,
             borderRadius: 8,
             background: AP_COLORS.surfaceRaised,
             border: `1px solid ${AP_COLORS.surfaceBorder}`,
             color: AP_COLORS.textMuted,
-            fontSize: 13,
+            fontSize: 24,
             fontWeight: 600,
             display: "flex",
             alignItems: "center",

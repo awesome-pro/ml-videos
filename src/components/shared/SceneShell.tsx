@@ -1,6 +1,6 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { AP_COLORS, AP_FONTS } from "./theme";
+import { AP_COLORS, AP_FONTS, AP_TYPE } from "./theme";
 import { Background } from "./Background";
 
 export type SceneShellProps = {
@@ -22,7 +22,7 @@ export type SceneShellProps = {
 export const SceneShell: React.FC<SceneShellProps> = ({
   kicker,
   title,
-  titleSize = 64,
+  titleSize = AP_TYPE.title,
   duration,
   enterDelay = 0,
   children,
@@ -73,7 +73,7 @@ export const SceneShell: React.FC<SceneShellProps> = ({
               width: 1920,
               textAlign: "center",
               color: AP_COLORS.accent,
-              fontSize: 27,
+              fontSize: AP_TYPE.kicker,
               fontWeight: 800,
               letterSpacing: "0.34em",
               textTransform: "uppercase",

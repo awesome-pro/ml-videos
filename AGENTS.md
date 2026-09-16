@@ -30,6 +30,7 @@ A registry entry may override per scene, but prefer the shared config.
 Use this for anything that is genuinely maths or needs shape motion. Do **not**
 hand-build formulas from monospace spans: the old `shared/MathText.tsx` did that
 and produced equations with no fraction bars, radicals or italic variables.
+Do not add new usages of `shared/MathText.tsx`; migrate existing ones.
 
 - `Equation` / `Tex` — real KaTeX typesetting. `hl("q", "Q")` tags a subterm;
   pass an `EquationHighlight` to light it up on a given frame. Emphasis uses
@@ -50,23 +51,47 @@ and produced equations with no fraction bars, radicals or italic variables.
 
 ## Legibility — non-negotiable
 
-The video is watched small (a 1080p frame scaled to ~530px) and H.264-encoded.
-Thin, low-contrast elements smear into the background and read as faded grey.
+The video is watched on phones, where a 1080p frame is scaled to ~530px or less,
+and it is H.264-encoded. Small, thin or low-contrast content is unreadable there.
+
+**Size — err consistently larger.**
+
+- Never introduce a font size below `AP_TYPE.captionMin` (24px). If text does not
+  fit at that size, cut the words or split the scene — do not shrink the type.
+- Headlines >= 72px, lead lines >= 38px, body >= 30px, captions and labels >= 24px.
+- Prefer short copy. Big type plus fewer words beats small type plus a paragraph.
+- Size floors are the *minimum*, not the target. When in doubt, go bigger.
+
+**Colour — maximise lightness separation.**
+
+- Text colour must be **as light as possible on a dark background**, and as dark
+  as possible on a light one. A mid-tone blue, teal or violet reads as dim grey
+  against black — always take the lightest step of a hue that stays
+  distinguishable from its neighbours.
+- Use `AP_COLORS` tokens, never ad-hoc hex, so a palette change applies everywhere.
+- `textMuted` is for de-emphasis only — never for text that must be read.
+- Body text weight 600+; labels and chips 700+.
+- Add `AP_COLORS.textShadow` to text sitting over busy or glowing areas.
+- Contrast floors against `AP_COLORS.bg`: **9:1 for coloured text**, 4.5:1 for
+  body text, 3:1 for large/bold. Verify numerically before shipping a new colour.
+- Warn the user about low-bitrate re-encodes: thin light-on-dark text is the
+  worst case for H.264. Suggest `--crf=16` for final renders.
+
+**Background.**
 
 - The background is pure black (`AP_COLORS.bg`). Keep it flat: no glows, radial
   gradients or colour casts — they compete with the content for luminance and
   measurably reduce contrast. Use `Background` as-is.
-- Bright, bold content on dark. If a scene is light, its content must be
-  correspondingly dark so it stays clearly visible.
-- Use `AP_COLORS` tokens, never ad-hoc hex, so a palette change applies everywhere.
-- `textMuted` is for de-emphasis only — never for text that must be read.
-- Body text weight 600+; labels and chips 700+. Captions >= 20px, grid labels
-  >= 22px.
-- Add `AP_COLORS.textShadow` to text sitting over busy or glowing areas.
-- Contrast floor: 4.5:1 for body text, 3:1 for large/bold. Check any new colour
-  against `AP_COLORS.bg` before shipping it.
-- Warn the user about low-bitrate re-encodes: thin light-on-dark text is the
-  worst case for H.264. Suggest `--crf=16` for final renders.
+
+## Pacing — no dead frames
+
+Each scene should be **exactly as long as its animation, plus ~1.5s (45 frames) of
+buffer**. The user records a facecam over the top and maps timings in CapCut; they
+do not need a tail of frozen frames waiting to be cut.
+
+- Do not pad a scene because the narration might need more room.
+- Find the last frame any animation uses, add 45, and set `X_DURATION` to that.
+- Render time scales with total frames, so dead frames are directly wasted time.
 
 ## Workflows
 
@@ -83,8 +108,10 @@ Thin, low-contrast elements smear into the background and read as faded grey.
 
 - Deterministic animation only: `interpolate` / `spring` / `Sequence` driven by
   `useCurrentFrame()`. Never `Math.random()`, `Date.now()`, or layout measurement.
-- TS strict + `noUnusedLocals`; `lib` is ES2015 — no `padStart`, `flat`,
-  `Object.entries`, or `Array.prototype.includes`.
+- TS strict + `noUnusedLocals`. `lib` says `es2015`, but the installed type
+  packages pull in up to ES2020, so `includes` / `flat` / `flatMap` / `padStart`
+  / `Object.entries` all work fine. ES2021+ does not: `replaceAll`,
+  `Array.prototype.at` and `findLast` fail to compile. Verify with `npx tsc`.
 - Never name an object property `transition` (including a destructured prop):
   Remotion's `non-pure-animation` lint rule flags any key with that name,
   because it hunts for CSS transitions.
@@ -106,3 +133,7 @@ Thin, low-contrast elements smear into the background and read as faded grey.
 - Headless Chrome cannot launch here: `remotion compositions`, `remotion still`
   and `remotion render` all crash. Validate with `npm run build` (pure bundle,
   no browser); real renders happen on the user's machine.
+- Consequence: **you cannot see your own output.** Verify geometry, contrast or
+  layout numerically instead (bundle a pure module with esbuild and assert on
+  it), and say plainly in your reply that the visuals are unverified, with the
+  command the user should run to check them.

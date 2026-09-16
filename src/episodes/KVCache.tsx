@@ -62,7 +62,12 @@ export const KVCache: React.FC = () => {
       <Series.Sequence durationInFrames={KV_DEFINITION_DURATION}>
         <KVDefinition />
       </Series.Sequence>
-      <Series.Sequence durationInFrames={KV_WORKED_DURATION}>
+      <Series.Sequence
+        durationInFrames={KV_WORKED_DURATION}
+        style={{
+          scale: 1.001,
+        }}
+      >
         <KVWorkedExample />
       </Series.Sequence>
       <Series.Sequence durationInFrames={KV_AS_MEMORY_DURATION}>

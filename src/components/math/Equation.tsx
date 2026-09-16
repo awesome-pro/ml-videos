@@ -60,7 +60,7 @@ export type EquationProps = {
 
 export const Equation: React.FC<EquationProps> = ({
   tex,
-  size = 56,
+  size = 64,
   color = AP_COLORS.textPrimary,
   highlights,
   dimBase = true,
@@ -179,7 +179,7 @@ export const Tex: React.FC<{
   tex: string;
   size?: number;
   color?: string;
-}> = ({ tex, size = 30, color = AP_COLORS.textPrimary }) => {
+}> = ({ tex, size = 34, color = AP_COLORS.textPrimary }) => {
   const html = useMemo(
     () =>
       katex.renderToString(tex, {

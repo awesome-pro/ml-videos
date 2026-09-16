@@ -5,7 +5,7 @@ import { FlowArrow } from "../../components/shared/FlowArrow";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_PER_LAYER_DURATION = 540; // 18.0s
+export const KV_PER_LAYER_DURATION = 205; // 18.0s
 
 const LAYERS = [
   { label: "Layer 1", y: 300 },
@@ -33,7 +33,7 @@ export const KVPerLayer: React.FC = () => {
           </div>
           <div style={{ display: "flex", gap: 10, marginTop: 14 }}>
             {Array.from({ length: 5 }, (_, s) => (
-              <div key={s} style={{ width: 60, height: 42, borderRadius: 9, background: "rgba(255,255,255,0.02)", border: `1.5px solid ${i === 0 ? AP_COLORS.key : AP_COLORS.value}`, color: i === 0 ? AP_COLORS.key : AP_COLORS.value, fontSize: 15, fontWeight: 700, fontFamily: AP_FONTS.mono, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", lineHeight: 1 }}>
+              <div key={s} style={{ width: 64, height: 50, borderRadius: 9, background: "rgba(255,255,255,0.02)", border: `1.5px solid ${i === 0 ? AP_COLORS.key : AP_COLORS.value}`, color: i === 0 ? AP_COLORS.key : AP_COLORS.value, fontSize: 22, fontWeight: 700, fontFamily: AP_FONTS.mono, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", lineHeight: 1 }}>
                 <span>K</span>
                 <span style={{ marginTop: 2 }}>V</span>
               </div>

@@ -4,7 +4,7 @@ import { SceneShell } from "../../components/shared/SceneShell";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_TRADEOFF_DURATION = 480; // 16.0s
+export const KV_TRADEOFF_DURATION = 215; // 16.0s
 
 export const KVTradeoff: React.FC = () => {
   const frame = useCurrentFrame();
@@ -41,7 +41,7 @@ const Panel: React.FC<{ color: string; direction: "up" | "down"; title: string; 
       <div style={{ color: AP_COLORS.textPrimary, fontSize: 30, fontWeight: 700, fontFamily: AP_FONTS.sans }}>
         {title}
       </div>
-      <div style={{ color: AP_COLORS.textSecondary, fontSize: 22, fontWeight: 500, marginTop: 8, fontFamily: AP_FONTS.sans }}>
+      <div style={{ color: AP_COLORS.textSecondary, fontSize: 26, fontWeight: 500, marginTop: 8, fontFamily: AP_FONTS.sans }}>
         {desc}
       </div>
       {/* a small bar to visualize the direction */}

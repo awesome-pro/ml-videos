@@ -1,6 +1,6 @@
 import React from "react";
 import { interpolate, useCurrentFrame } from "remotion";
-import { AP_COLORS } from "./theme";
+import { AP_COLORS, AP_TYPE } from "./theme";
 
 // Small shared, deterministic UI pieces used across scenes.
 
@@ -10,7 +10,7 @@ export const LeadLine: React.FC<{
   start: number;
   color?: string;
   size?: number;
-}> = ({ text, y, start, color = AP_COLORS.textSecondary, size = 32 }) => {
+}> = ({ text, y, start, color = AP_COLORS.textSecondary, size = AP_TYPE.lead }) => {
   const frame = useCurrentFrame();
   const opacity = interpolate(frame - start, [0, 16], [0, 1], {
     extrapolateLeft: "clamp",
@@ -47,7 +47,7 @@ export const Tag: React.FC<{
   color: string;
   bg?: string;
   size?: number;
-}> = ({ text, x, y, start, color, bg, size = 24 }) => {
+}> = ({ text, x, y, start, color, bg, size = AP_TYPE.label }) => {
   const frame = useCurrentFrame();
   const opacity = interpolate(frame - start, [0, 14], [0, 1], {
     extrapolateLeft: "clamp",

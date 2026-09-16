@@ -57,7 +57,7 @@ const Legend: React.FC<{
       <span style={{ color, fontWeight: 800, fontSize: 26, fontFamily: AP_FONTS.mono, minWidth: 22 }}>
         {label}
       </span>
-      <span style={{ color: AP_COLORS.textSecondary, fontSize: 23, fontWeight: 500 }}>{text}</span>
+      <span style={{ color: AP_COLORS.textSecondary, fontSize: 26, fontWeight: 500 }}>{text}</span>
     </div>
   );
 };

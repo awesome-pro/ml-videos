@@ -5,7 +5,7 @@ import { HeadConfig } from "../../components/kv/HeadConfig";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS } from "../../components/shared/theme";
 
-export const KV_MHA_GQA_MQA_DURATION = 720; // 24.0s
+export const KV_MHA_GQA_MQA_DURATION = 565; // 24.0s
 
 const CONFIGS = [
   { title: "MHA", qCount: 6, kvCount: 6, qLabel: "32 Q", kvLabel: "32 KV", mem: 1.0, color: AP_COLORS.negative, caption: "full KV cache" },

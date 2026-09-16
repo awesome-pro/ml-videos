@@ -4,7 +4,7 @@ import { SceneShell } from "../../components/shared/SceneShell";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_ATTN_RECAP_DURATION = 540; // 18.0s
+export const KV_ATTN_RECAP_DURATION = 255; // 18.0s
 
 const ROLES = [
   { q: "Query", color: AP_COLORS.query, desc: "what am I looking for?" },

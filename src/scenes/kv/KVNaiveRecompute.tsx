@@ -5,7 +5,7 @@ import { KvSlot, KvWordLabel } from "../../components/kv/KvSlot";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_NAIVE_DURATION = 960; // 32.0s
+export const KV_NAIVE_DURATION = 527; // 32.0s
 
 const SLOT_W = 146;
 const SLOT_H = 62;

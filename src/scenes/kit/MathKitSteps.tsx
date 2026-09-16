@@ -97,7 +97,7 @@ const StepChip: React.FC<{ index: number; text: string; at: number; frame: numbe
       <span
         style={{
           color: active ? AP_COLORS.accent : AP_COLORS.textMuted,
-          fontSize: 20,
+          fontSize: 26,
           fontWeight: 800,
           fontFamily: AP_FONTS.mono,
         }}
@@ -107,7 +107,7 @@ const StepChip: React.FC<{ index: number; text: string; at: number; frame: numbe
       <span
         style={{
           color: active ? AP_COLORS.textPrimary : AP_COLORS.textMuted,
-          fontSize: 22,
+          fontSize: 26,
           fontWeight: active ? 700 : 500,
         }}
       >

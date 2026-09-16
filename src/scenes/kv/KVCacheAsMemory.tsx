@@ -5,7 +5,7 @@ import { KvSlot } from "../../components/kv/KvSlot";
 import { LeadLine } from "../../components/shared/ui";
 import { AP_COLORS, AP_FONTS } from "../../components/shared/theme";
 
-export const KV_AS_MEMORY_DURATION = 480; // 16.0s
+export const KV_AS_MEMORY_DURATION = 245; // 16.0s
 
 const SLOT_W = 132;
 const SLOT_H = 58;
@@ -30,14 +30,14 @@ export const KVCacheAsMemory: React.FC = () => {
     <SceneShell kicker="What it is" duration={KV_AS_MEMORY_DURATION} enterDelay={0}>
       <LeadLine text="the KV cache is the attention mechanism's memory" y={300} start={8} />
 
-      <div style={{ position: "absolute", left: 0, top: 372, width: 1920, textAlign: "center", opacity: railOpacity, color: AP_COLORS.textMuted, fontSize: 22, fontWeight: 700, letterSpacing: "0.2em", fontFamily: AP_FONTS.sans }}>
+      <div style={{ position: "absolute", left: 0, top: 372, width: 1920, textAlign: "center", opacity: railOpacity, color: AP_COLORS.textMuted, fontSize: 26, fontWeight: 700, letterSpacing: "0.2em", fontFamily: AP_FONTS.sans }}>
         THIS SEQUENCE'S RECENT TOKENS
       </div>
 
       {WORDS.map((w, i) => (
         <div key={i} style={{ opacity: railOpacity }}>
           <KvSlot index={i + 1} x={CENTERS[i]} y={SLOT_Y} width={SLOT_W} height={SLOT_H} appearDelay={50 + i * 8} />
-          <div style={{ position: "absolute", left: CENTERS[i], top: SLOT_Y + 68, transform: "translateX(-50%)", color: AP_COLORS.textMuted, fontSize: 20, fontWeight: 500, opacity: railOpacity, fontFamily: AP_FONTS.sans }}>
+          <div style={{ position: "absolute", left: CENTERS[i], top: SLOT_Y + 68, transform: "translateX(-50%)", color: AP_COLORS.textMuted, fontSize: 24, fontWeight: 500, opacity: railOpacity, fontFamily: AP_FONTS.sans }}>
             {w}
           </div>
         </div>

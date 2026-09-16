@@ -8,7 +8,7 @@ import { AP_COLORS } from "../../components/shared/theme";
 import { CAPITAL_TOKENS } from "./data";
 import { FlowArrow } from "../../components/shared/FlowArrow";
 
-export const KV_AUTOREG_DURATION = 720; // 24.0s
+export const KV_AUTOREG_DURATION = 575; // 24.0s
 
 // The prompt + the two generated tokens ("Paris", "."). We reveal them in order.
 const SEQUENCE: readonly string[] = [...CAPITAL_TOKENS, "."];
@@ -110,7 +110,7 @@ const PredictBeat: React.FC<{ x: number; y: number; opacity: number; label: stri
       top: y,
       transform: "translateX(-50%)",
       color: AP_COLORS.accent,
-      fontSize: 22,
+      fontSize: 26,
       fontWeight: 700,
       letterSpacing: "0.06em",
       textTransform: "uppercase",

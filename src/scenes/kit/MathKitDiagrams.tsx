@@ -145,7 +145,7 @@ export const MathKitDiagrams: React.FC = () => {
                   display: "inline-block",
                 }}
               />
-              <span style={{ color: AP_COLORS.textSecondary, fontSize: 22, fontWeight: 700 }}>
+              <span style={{ color: AP_COLORS.textSecondary, fontSize: 26, fontWeight: 700 }}>
                 {temp.label}
               </span>
             </div>
@@ -203,10 +203,10 @@ export const MathKitDiagrams: React.FC = () => {
             border: "1px solid " + AP_COLORS.accentBorder,
           }}
         >
-          <span style={{ color: AP_COLORS.accent, fontSize: 23, fontWeight: 800, fontFamily: AP_FONTS.mono }}>
+          <span style={{ color: AP_COLORS.accent, fontSize: 26, fontWeight: 800, fontFamily: AP_FONTS.mono }}>
             0.58 &times; V
           </span>
-          <span style={{ color: AP_COLORS.textSecondary, fontSize: 22 }}>
+          <span style={{ color: AP_COLORS.textSecondary, fontSize: 26 }}>
             attention weight applied
           </span>
         </div>

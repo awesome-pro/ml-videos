@@ -238,7 +238,7 @@ export const SceneGridTransform: React.FC = () => {
         <div
           style={{
             color: AP_COLORS.textMuted,
-            fontSize: 21,
+            fontSize: 26,
             fontWeight: 700,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
@@ -254,7 +254,7 @@ export const SceneGridTransform: React.FC = () => {
           style={{
             marginTop: 22,
             color: AP_COLORS.textSecondary,
-            fontSize: 23,
+            fontSize: 26,
             fontWeight: 600,
             lineHeight: 1.5,
             opacity: panelAppear,
@@ -278,7 +278,7 @@ export const SceneGridTransform: React.FC = () => {
           width: 480,
           textAlign: "center",
           color: AP_COLORS.textMuted,
-          fontSize: 21,
+          fontSize: 26,
           fontWeight: 700,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
@@ -328,7 +328,7 @@ export const SceneGridTransform: React.FC = () => {
             <span
               style={{
                 color: AP_COLORS.textSecondary,
-                fontSize: 23,
+                fontSize: 26,
                 fontWeight: 600,
                 textShadow: AP_COLORS.textShadow,
               }}
@@ -346,7 +346,7 @@ export const SceneGridTransform: React.FC = () => {
           top: 576,
           width: 480,
           color: AP_COLORS.textSecondary,
-          fontSize: 22,
+          fontSize: 26,
           fontWeight: 600,
           textAlign: "center",
           lineHeight: 1.5,
