@@ -31,6 +31,7 @@ export {
   useRamp,
   useSpringIn,
   enterStyle,
+  crossFade,
   stagger,
   pulse,
   usePulse,

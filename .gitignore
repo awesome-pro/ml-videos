@@ -9,3 +9,6 @@ out
 *.mp4
 *.webm
 *.mov
+
+# Presenter deck build (`npm run deck:build`).
+deck-dist

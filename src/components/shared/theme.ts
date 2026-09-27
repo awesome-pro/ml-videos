@@ -82,6 +82,46 @@ export const AP_TYPE = {
   labelMin: 24,
 } as const;
 
+/**
+ * The weight scale.
+ *
+ * Nothing loads a webfont (see `AP_FONTS`), so these land on the *system*
+ * stack — on macOS that is SF Pro, where 800 resolves to a genuinely Heavy
+ * face. Setting almost every element to 700–800 made the frame read as
+ * congested: there was no lighter text for the heavy text to register against,
+ * so the eye got one undifferentiated slab of ink. Large sizes also carried
+ * `-0.03em` tracking on top of that, which closed the counters further.
+ *
+ * Two passes lighter since: 800 -> 700 -> 600 at the top. At 76px a 600 is
+ * already imposing, and the counters stay open when the frame is scaled to a
+ * phone. Hierarchy comes from size and colour; weight only separates
+ * "structure" from "prose". Use these tokens, never a raw number, so a future
+ * change lands in every video at once.
+ *
+ * The floor is 400: nothing here goes thinner, because light-on-dark strokes
+ * are what H.264 smears first (see the legibility notes above).
+ */
+export const AP_WEIGHT = {
+  /** The scene title — still the heaviest thing on screen, now at 600. */
+  title: 600,
+  /** The eyebrow above a title, and card/panel/badge headings. */
+  heading: 500,
+  /** Chips, labels, axis labels, ids, numerals — anything that must stay crisp. */
+  label: 500,
+  /** Body copy, captions and explanatory notes. */
+  body: 400,
+} as const;
+
+/** Tracking. Bigger type needs less negative tracking, not more. */
+export const AP_TRACK = {
+  /** 76–96px display lines. */
+  display: "-0.012em",
+  /** 36–48px headings. */
+  heading: "-0.008em",
+  /** 24–28px all-caps eyebrows. */
+  kicker: "0.28em",
+} as const;
+
 export const AP_FONTS = {
   sans: "'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
   mono: "'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, monospace",
@@ -90,9 +130,28 @@ export const AP_FONTS = {
 export const AP_MARGINS = {
   width: 1920,
   height: 1080,
-  safeWidth: 1560,
-  safeHeight: 780,
+  safeWidth: 1680,
+  safeHeight: 860,
   centerX: 960,
   centerY: 540,
-  inset: 180,
+  /**
+   * Horizontal breathing room at the frame edge. Was 180, which spent a lot of
+   * the 1920 on nothing; 112 still keeps copy clear of the overscan while
+   * giving scenes ~140px more width to work with.
+   */
+  inset: 112,
+  /**
+   * The title band. Raised from 118/132/152 so the header costs less vertical
+   * space and every scene gets that room back for its content.
+   */
+  headerTop: 86,
+  /** Title top when a kicker sits above it (kicker glyphs end ~116). */
+  titleWithKicker: 126,
+  /** Title top when the scene has no kicker. */
+  titleTop: 96,
+  /**
+   * Horizontal padding on the title. Was 140, which wrapped headlines that had
+   * room to spare; 72 keeps two lines on screen without crowding the edge.
+   */
+  titlePad: 72,
 } as const;

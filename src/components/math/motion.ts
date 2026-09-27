@@ -79,6 +79,22 @@ export function enterStyle(
   };
 }
 
+/**
+ * A crossfade that never overprints. The incoming copy rises into place while
+ * the outgoing one lifts away, so two strings that share a slot can both be
+ * partly visible without being drawn on top of each other. Layout-neutral:
+ * opacity and transform only.
+ */
+export function crossFade(
+  frame: number,
+  from: number,
+  until: number | null
+): { opacity: number; dy: number } {
+  const inP = ramp(frame, from, from + TIMING.fast);
+  const outP = until === null ? 1 : 1 - ramp(frame, until, until + 10);
+  return { opacity: Math.min(inP, outP), dy: (1 - inP) * 8 - (1 - outP) * 8 };
+}
+
 /** Start frame for item `index` of a staggered group. */
 export function stagger(index: number, start: number, step = 5): number {
   return start + index * step;

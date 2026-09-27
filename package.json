@@ -4,6 +4,9 @@
   "description": "Deterministic, code-driven explainer scenes for ML research videos",
   "scripts": {
     "dev": "remotion studio",
+    "deck": "vite --config vite.deck.config.mjs",
+    "deck:build": "vite build --config vite.deck.config.mjs",
+    "deck:preview": "vite preview --config vite.deck.config.mjs",
     "build": "remotion bundle",
     "render": "remotion render",
     "still": "remotion still",
@@ -14,6 +17,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@remotion/cli": "^4.0.0",
+    "@remotion/player": "4.0.520",
     "@remotion/tailwind-v4": "^4.0.0",
     "@types/katex": "^0.16.8",
     "katex": "^0.18.7",
@@ -24,11 +28,14 @@
   },
   "devDependencies": {
     "@remotion/eslint-config-flat": "^4.0.0",
+    "@tailwindcss/vite": "4.3.3",
     "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.7",
     "@types/web": "0.0.166",
     "eslint": "9.19.0",
     "prettier": "3.8.1",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vite": "8.3.0"
   },
   "private": true
 }

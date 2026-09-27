@@ -1,7 +1,10 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { AP_COLORS, AP_FONTS, AP_TYPE } from "./theme";
+import { AP_COLORS, AP_TYPE, AP_WEIGHT, AP_TRACK, AP_FONTS, AP_MARGINS } from "./theme";
 import { Background } from "./Background";
+
+/** Frames of fade at the end of every scene. */
+export const EXIT_FADE_FRAMES = 18;
 
 export type SceneShellProps = {
   /** Small eyebrow label above the title. */
@@ -45,7 +48,7 @@ export const SceneShell: React.FC<SceneShellProps> = ({
   });
   const titleY = interpolate(entrance, [0, 1], [26, 0]);
 
-  const exitOpacity = interpolate(frame, [duration - 18, duration], [1, 0], {
+  const exitOpacity = interpolate(frame, [duration - EXIT_FADE_FRAMES, duration], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -69,13 +72,13 @@ export const SceneShell: React.FC<SceneShellProps> = ({
           <div
             style={{
               position: "absolute",
-              top: 118,
+              top: AP_MARGINS.headerTop,
               width: 1920,
               textAlign: "center",
               color: AP_COLORS.accent,
               fontSize: AP_TYPE.kicker,
-              fontWeight: 800,
-              letterSpacing: "0.34em",
+              fontWeight: AP_WEIGHT.heading,
+              letterSpacing: AP_TRACK.kicker,
               textTransform: "uppercase",
               opacity: kickerOpacity,
               textShadow: AP_COLORS.textShadow,
@@ -90,19 +93,20 @@ export const SceneShell: React.FC<SceneShellProps> = ({
           <div
             style={{
               position: "absolute",
-              top: 152,
+              // With no kicker the title moves up to use the freed band.
+              top: kicker ? AP_MARGINS.titleWithKicker : AP_MARGINS.titleTop,
               width: 1920,
               textAlign: "center",
               color: AP_COLORS.textPrimary,
               fontSize: titleSize,
-              fontWeight: 800,
-              letterSpacing: "-0.03em",
+              fontWeight: AP_WEIGHT.title,
+              letterSpacing: AP_TRACK.display,
               lineHeight: 1.08,
               opacity: titleOpacity,
               transform: `translateY(${titleY}px)`,
               textShadow: AP_COLORS.textShadowStrong,
               userSelect: "none",
-              padding: "0 140px",
+              padding: `0 ${AP_MARGINS.titlePad}px`,
             }}
           >
             {title}

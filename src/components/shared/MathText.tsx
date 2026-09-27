@@ -1,5 +1,5 @@
 import React from "react";
-import { AP_COLORS, AP_FONTS } from "./theme";
+import { AP_COLORS, AP_FONTS, AP_WEIGHT } from "./theme";
 
 // Small helpers for building math formulas without a LaTeX dependency.
 // Formulas are composed from colored variables + superscript/subscript spans,
@@ -23,7 +23,7 @@ export const MathText: React.FC<{
         display: "flex",
         alignItems: "baseline",
         justifyContent: align === "center" ? "center" : "flex-start",
-        fontWeight: 600,
+        fontWeight: AP_WEIGHT.label,
         letterSpacing: "0.01em",
         userSelect: "none",
       }}

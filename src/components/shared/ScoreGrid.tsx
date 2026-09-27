@@ -1,6 +1,6 @@
 import React from "react";
 import { interpolate, useCurrentFrame } from "remotion";
-import { AP_COLORS, AP_FONTS, AP_TYPE } from "./theme";
+import { AP_COLORS, AP_FONTS, AP_TYPE, AP_WEIGHT } from "./theme";
 
 export type ScoreGridProps = {
   rows: number;
@@ -85,7 +85,7 @@ export const ScoreGrid: React.FC<ScoreGridProps> = ({
             color: showValues ? AP_COLORS.textPrimary : fill,
             fontFamily: AP_FONTS.mono,
             fontSize: Math.max(AP_TYPE.label, Math.round(cell * 0.42)),
-            fontWeight: 700,
+            fontWeight: AP_WEIGHT.label,
             textShadow: showValues ? "0 1px 3px rgba(0,0,0,0.6)" : "none",
           }}
         >
@@ -118,7 +118,7 @@ export const ScoreGrid: React.FC<ScoreGridProps> = ({
             color: labelColor,
             fontFamily: AP_FONTS.sans,
             fontSize: AP_TYPE.label,
-            fontWeight: 700,
+            fontWeight: AP_WEIGHT.label,
             textShadow: AP_COLORS.textShadow,
           }}
         >
@@ -139,7 +139,7 @@ export const ScoreGrid: React.FC<ScoreGridProps> = ({
             color: labelColor,
             fontFamily: AP_FONTS.sans,
             fontSize: AP_TYPE.label,
-            fontWeight: 700,
+            fontWeight: AP_WEIGHT.label,
             textShadow: AP_COLORS.textShadow,
             whiteSpace: "nowrap",
           }}

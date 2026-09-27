@@ -1,6 +1,6 @@
 import React from "react";
 import { interpolate, useCurrentFrame } from "remotion";
-import { AP_COLORS, AP_TYPE } from "./theme";
+import { AP_COLORS, AP_TYPE, AP_WEIGHT } from "./theme";
 
 // Small shared, deterministic UI pieces used across scenes.
 
@@ -26,7 +26,7 @@ export const LeadLine: React.FC<{
         textAlign: "center",
         color,
         fontSize: size,
-        fontWeight: 600,
+        fontWeight: AP_WEIGHT.body,
         opacity,
         transform: `translateY(${8 - opacity * 8}px)`,
         lineHeight: 1.4,
@@ -67,7 +67,7 @@ export const Tag: React.FC<{
         border: `1.5px solid ${color}`,
         color,
         fontSize: size,
-        fontWeight: 800,
+        fontWeight: AP_WEIGHT.heading,
         opacity,
         fontFamily: "inherit",
         textShadow: AP_COLORS.textShadow,

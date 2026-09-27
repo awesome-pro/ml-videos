@@ -122,6 +122,32 @@ import { KV_FULL_RECAP_DURATION, KVFullRecap } from "./kv/KVFullRecap";
 import { KV_REAL_MODEL_DURATION, KVRealModelFlow } from "./kv/KVRealModelFlow";
 import { KV_CLOSING_DURATION, KVClosing } from "./kv/KVClosing";
 import {
+  MINI_INFERENCE_DURATION,
+  MiniInferenceLoop,
+} from "../episodes/MiniInferenceLoop";
+import { MIL_ROADMAP_DURATION, MILRoadmap } from "./mil/MILRoadmap";
+import { MIL_INPUT_IDS_DURATION, MILInputIds } from "./mil/MILInputIds";
+import { MIL_VOCAB_DURATION, MILVocab } from "./mil/MILVocab";
+import { MIL_FORWARD_DURATION, MILForwardPass } from "./mil/MILForwardPass";
+import { MIL_SHAPE_GROW_DURATION, MILShapeGrow } from "./mil/MILShapeGrow";
+import { MIL_SHAPE_SLICE_DURATION, MILShapeSlice } from "./mil/MILShapeSlice";
+import { MIL_SAMPLING_DURATION, MILSampling } from "./mil/MILSampling";
+import { MIL_TEMPERATURE_DURATION, MILTemperature } from "./mil/MILTemperature";
+import { MIL_TRUNCATION_DURATION, MILTruncation } from "./mil/MILTruncation";
+import { MIL_TOP_K_DURATION, MILTopKCode } from "./mil/MILTopKCode";
+import { MIL_TOP_P_DURATION, MILTopPCode } from "./mil/MILTopPCode";
+import { MIL_NAIVE_DURATION, MILNaiveLoop } from "./mil/MILNaiveLoop";
+import { MIL_KV_CACHE_DURATION, MILKVCache } from "./mil/MILKVCache";
+import { MIL_PREFILL_DURATION, MILPrefill } from "./mil/MILPrefill";
+import { MIL_DECODE_DURATION, MILDecode } from "./mil/MILDecode";
+import { MIL_LAST_LOGITS_DURATION, MILLastLogits } from "./mil/MILLastLogits";
+import { MIL_BATCHING_DURATION, MILBatching } from "./mil/MILBatching";
+import { MIL_MASK_DURATION, MILAttentionMask } from "./mil/MILAttentionMask";
+import { MIL_OUTPUT_DURATION, MILOutput } from "./mil/MILOutput";
+import { MIL_TTFT_DURATION, MILTTFTITL } from "./mil/MILTTFTITL";
+import { MIL_METRICS_DURATION, MILMetrics } from "./mil/MILMetrics";
+import { MIL_CLOSING_DURATION, MILClosing } from "./mil/MILClosing";
+import {
   MATH_KIT_EQUATIONS_DURATION,
   MathKitEquations,
 } from "./kit/MathKitEquations";
@@ -597,6 +623,213 @@ export const scenes: SceneDef[] = [
     id: "GridTransform",
     component: SceneGridTransform,
     durationInFrames: SCENE_GRID_TRANSFORM_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MiniInferenceLoop",
+    component: MiniInferenceLoop,
+    durationInFrames: MINI_INFERENCE_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILRoadmap",
+    component: MILRoadmap,
+    durationInFrames: MIL_ROADMAP_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILInputIds",
+    component: MILInputIds,
+    durationInFrames: MIL_INPUT_IDS_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILVocab",
+    component: MILVocab,
+    durationInFrames: MIL_VOCAB_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILForwardPass",
+    component: MILForwardPass,
+    durationInFrames: MIL_FORWARD_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILShapeGrow",
+    component: MILShapeGrow,
+    durationInFrames: MIL_SHAPE_GROW_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILShapeSlice",
+    component: MILShapeSlice,
+    durationInFrames: MIL_SHAPE_SLICE_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILSampling",
+    component: MILSampling,
+    durationInFrames: MIL_SAMPLING_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILTemperature",
+    component: MILTemperature,
+    durationInFrames: MIL_TEMPERATURE_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILTruncation",
+    component: MILTruncation,
+    durationInFrames: MIL_TRUNCATION_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILTopKCode",
+    component: MILTopKCode,
+    durationInFrames: MIL_TOP_K_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILTopPCode",
+    component: MILTopPCode,
+    durationInFrames: MIL_TOP_P_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILNaiveLoop",
+    component: MILNaiveLoop,
+    durationInFrames: MIL_NAIVE_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILKVCache",
+    component: MILKVCache,
+    durationInFrames: MIL_KV_CACHE_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILPrefill",
+    component: MILPrefill,
+    durationInFrames: MIL_PREFILL_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILDecode",
+    component: MILDecode,
+    durationInFrames: MIL_DECODE_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILLastLogits",
+    component: MILLastLogits,
+    durationInFrames: MIL_LAST_LOGITS_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILBatching",
+    component: MILBatching,
+    durationInFrames: MIL_BATCHING_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILAttentionMask",
+    component: MILAttentionMask,
+    durationInFrames: MIL_MASK_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILOutput",
+    component: MILOutput,
+    durationInFrames: MIL_OUTPUT_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILTTFTITL",
+    component: MILTTFTITL,
+    durationInFrames: MIL_TTFT_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILMetrics",
+    component: MILMetrics,
+    durationInFrames: MIL_METRICS_DURATION,
+    fps: FPS,
+    width: WIDTH,
+    height: HEIGHT,
+    defaultProps: {},
+  },
+  {
+    id: "MILClosing",
+    component: MILClosing,
+    durationInFrames: MIL_CLOSING_DURATION,
     fps: FPS,
     width: WIDTH,
     height: HEIGHT,

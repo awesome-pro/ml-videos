@@ -70,7 +70,14 @@ and it is H.264-encoded. Small, thin or low-contrast content is unreadable there
   distinguishable from its neighbours.
 - Use `AP_COLORS` tokens, never ad-hoc hex, so a palette change applies everywhere.
 - `textMuted` is for de-emphasis only — never for text that must be read.
-- Body text weight 600+; labels and chips 700+.
+- Weights come from `AP_WEIGHT` only (title 600, heading/label 500, body 400) —
+  never a raw `fontWeight`. The scale has been walked down twice from the
+  original 800 because heavy system-stack faces read as congested at 1080p.
+  **400 is the floor**: below that, light-on-dark strokes are what H.264 smears
+  first, so slim the type by cutting words or going up a size, not down a weight.
+- Keep content inside `AP_MARGINS.inset` (112). The frame's side padding was
+  reduced from 180 so scenes get that width back; the header band
+  (`AP_MARGINS.headerTop` / `titleTop`) is deliberately tight for the same reason.
 - Add `AP_COLORS.textShadow` to text sitting over busy or glowing areas.
 - Contrast floors against `AP_COLORS.bg`: **9:1 for coloured text**, 4.5:1 for
   body text, 3:1 for large/bold. Verify numerically before shipping a new colour.

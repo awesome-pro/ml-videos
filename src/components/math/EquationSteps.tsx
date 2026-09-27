@@ -1,6 +1,6 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { AP_COLORS, AP_FONTS } from "../shared/theme";
+import { AP_COLORS, AP_FONTS, AP_WEIGHT } from "../shared/theme";
 import { Equation } from "./Equation";
 import type { EquationHighlight } from "./Equation";
 import { EASE, ramp } from "./motion";
@@ -90,7 +90,7 @@ export const EquationSteps: React.FC<EquationStepsProps> = ({
                   textAlign: "center",
                   color: AP_COLORS.textSecondary,
                   fontSize: 32,
-                  fontWeight: 600,
+                  fontWeight: AP_WEIGHT.body,
                   fontFamily: AP_FONTS.sans,
                   padding: "0 200px",
                   lineHeight: 1.45,
@@ -140,7 +140,7 @@ export const EquationSteps: React.FC<EquationStepsProps> = ({
               marginLeft: 16,
               color: AP_COLORS.textMuted,
               fontSize: 24,
-              fontWeight: 600,
+              fontWeight: AP_WEIGHT.label,
               fontFamily: AP_FONTS.mono,
               letterSpacing: "0.06em",
             }}

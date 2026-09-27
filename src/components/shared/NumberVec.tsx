@@ -1,6 +1,6 @@
 import React from "react";
 import { interpolate, useCurrentFrame } from "remotion";
-import { AP_COLORS, AP_FONTS } from "./theme";
+import { AP_COLORS, AP_FONTS, AP_WEIGHT } from "./theme";
 
 export type NumberVecProps = {
   /** The numbers to display (each becomes one cell). */
@@ -76,7 +76,7 @@ export const NumberVec: React.FC<NumberVecProps> = ({
           color: textColor ?? AP_COLORS.textPrimary,
           fontFamily: AP_FONTS.mono,
           fontSize: Math.max(18, Math.round(cellH * 0.56)),
-          fontWeight: 700,
+          fontWeight: AP_WEIGHT.label,
           letterSpacing: "-0.02em",
           textShadow: "0 1px 3px rgba(0,0,0,0.65)",
           transform: `scale(${interpolate(appear, [0, 1], [0.86, 1])})`,

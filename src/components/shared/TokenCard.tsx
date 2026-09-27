@@ -1,6 +1,6 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { AP_COLORS, AP_FONTS, AP_TYPE } from "./theme";
+import { AP_COLORS, AP_TYPE, AP_WEIGHT, AP_FONTS } from "./theme";
 
 export type TokenVariant =
   | "neutral"
@@ -138,7 +138,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({
         boxShadow: `${s.shadow}, ${glow}`,
         color: s.color,
         fontFamily: AP_FONTS.sans,
-        fontWeight: 700,
+        fontWeight: AP_WEIGHT.heading,
         fontSize,
         letterSpacing: "-0.01em",
         textShadow: AP_COLORS.textShadow,
@@ -159,7 +159,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({
             textAlign: "center",
             color: AP_COLORS.textSecondary,
             fontSize: Math.max(AP_TYPE.captionMin, fontSize - 10),
-            fontWeight: 600,
+            fontWeight: AP_WEIGHT.body,
             textShadow: AP_COLORS.textShadow,
             opacity: interpolate(frame - appearDelay - 8, [0, 16], [0, 1], {
               extrapolateLeft: "clamp",
